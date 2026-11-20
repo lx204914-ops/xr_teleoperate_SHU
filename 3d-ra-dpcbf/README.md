@@ -164,7 +164,7 @@ $J=\sum\Delta t\|u-u_{\mathrm{MPC}}\|^2$ 表示累计偏离名义控制的程度
 |:---:|:---:|
 | ![RA十障碍Gazebo原生录像](px4-gazebo/media/n010_s611000_RA-DPCBF_通过.gif) | ![Park十障碍Gazebo原生录像](px4-gazebo/media/n010_s611000_Park适配_通过.gif) |
 
-[查看四方法录像、密集案例与RA失败案例](px4-gazebo/README.md) · [100次逐项结果](px4-gazebo/data/全部100次可追溯记录.csv)
+[查看全部100次原始录像与结果](px4-gazebo/全部100次录像.md) · [查看精选录像与说明](px4-gazebo/README.md) · [100次逐项结果](px4-gazebo/data/全部100次可追溯记录.csv)
 
 ## 查看数据与复现
 

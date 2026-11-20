@@ -17,3 +17,4 @@ outputs/
 !**/figures/*.png
 !**/media/
 !**/media/*.mp4
+!**/media/**/*.png

@@ -44,7 +44,7 @@ python reproducibility/render_results.py
 
 入口`runtime/code/run_continuous.py`需要Linux和完整仿真环境。`platform_session.py`的PX4目录与Python路径可通过`CBF_PX4_ROOT`、`CBF_PYTHON`设置；此处是发布副本的路径适配，控制公式未改变。原生插件、固件配置与上游基准仍需在目标Linux机上核对。本次Windows离线检查不等于Linux闭环复现通过。
 
-100次运行的全部结果及100份原媒体SHA均保留索引；仓库精选7份原生录像，不重复上传全部81个GIF和19张停止截图。其余原件仍在研究归档，索引明确标注未随仓库发布。
+100次运行的全部结果、81个原生GIF和19张停止截图均随仓库发布，逐项提供路径与原件SHA256。首页仅展示精选录像，全部媒体在飞控板块的100次录像总目录中打开；短时停止截图没有伪装成完整录像。
 
 ## 媒体与中文说明
 

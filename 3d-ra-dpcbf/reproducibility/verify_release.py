@@ -31,6 +31,13 @@ def main():
     assert [round(four[m]['first_arrival_s'],3) for m in ['ra','park','ma_cbf_vo','c3bf']]==[14.33,12.97,9.655,11.1]
     runs=json.loads((ROOT/'px4-gazebo/data/results.json').read_text(encoding='utf8'))['runs']
     assert len(runs)==len({r['session'] for r in runs})==100
+    media=rows(ROOT/'px4-gazebo/data/100次媒体来源索引.csv')
+    assert len(media)==100 and {r['会话'] for r in media}=={r['session'] for r in runs}
+    assert sum(r['媒体类型']=='.gif' for r in media)==81
+    assert sum(r['媒体类型']=='.png' for r in media)==19
+    for row in media:
+        p=ROOT/'px4-gazebo'/row['本次发布路径']
+        assert p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==row['原件SHA256']
     for method,n,k in [('ra',22,16),('park',12,7),('ma_cbf_vo',15,0),('c3bf',0,0)]:
         group=[r for r in runs if r['method']==method]
         assert len(group)==25 and sum(r['arrived'] for r in group)==n and sum(r['strict_execution_passed'] for r in group)==k
@@ -43,7 +50,7 @@ def main():
             if not (p.parent/target).exists():broken.append((str(p.relative_to(ROOT)),target))
     assert not broken,broken
     print(json.dumps({'核验':'通过','文件SHA数量':len(checks),'Python语法文件数':len(code),
-      '正式逐次记录':len(data),'PX4逐次记录':len(runs),'本地文档断链数':len(broken),
+      '正式逐次记录':len(data),'PX4逐次记录':len(runs),'PX4全部媒体':len(media),'本地文档断链数':len(broken),
       '边界':'离线核验，不代表科学控制重跑、Linux SITL复现或真机验证通过'},ensure_ascii=False,indent=2))
 
 if __name__=='__main__':main()
