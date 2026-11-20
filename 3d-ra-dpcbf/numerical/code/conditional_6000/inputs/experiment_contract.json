@@ -1,0 +1,42 @@
+{
+  "campaign_id": "density_radius_constant_velocity_conditional_detour_v1",
+  "status": "thresholds_frozen_before_formal_seeds",
+  "source_campaign": "density_radius_constant_velocity_v1",
+  "source_campaign_rule": "Reuse exactly the same deterministic scene generator, initial gates, nominal MPC, RA-DPCBF barrier, dynamic radius, input limits, sample-hold margin and stopping rule.",
+  "new_method": "ra_conditional_detour",
+  "change_scope": "Only the lifecycle of the existing chi-Gamma auxiliary row is changed. The base sampled RA-DPCBF safety QP is the default controller.",
+  "factors": {
+    "obstacle_count": [1, 10, 30, 50, 100],
+    "maximum_obstacle_radius_m": [0.3, 0.5, 0.7],
+    "formal_seeds": {"start": 1000, "stop_inclusive": 1099, "count_per_cell": 100},
+    "development_seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  },
+  "scene": {
+    "motion_family": "constant_velocity_primary",
+    "dimension": 3,
+    "workspace_m": [[-2.0, 22.0], [-8.0, 8.0], [-6.0, 6.0]],
+    "start_state": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+    "goal_position_m": [18.0, 0.0, 0.0],
+    "horizon_s": 24.0,
+    "tape_dt_s": 0.01,
+    "minimum_obstacle_radius_m": 0.1,
+    "obstacle_acceleration_mps2": 0.0,
+    "generator_version": "density_cv_v1",
+    "minimum_initial_body_gap_m": 0.75,
+    "minimum_initial_obstacle_pair_gap_m": 0.15,
+    "risk_bearing_count": "max(1, round(0.08*N))",
+    "rejection_rule": "Identical to the source campaign; no controller outcome is inspected."
+  },
+  "common_execution": {
+    "control_dt_s": 0.0025,
+    "monitor_dt_s": 0.0005,
+    "acceleration_component_limit_mps2": 2.0,
+    "goal_position_tolerance_m": 0.25,
+    "goal_speed_tolerance_mps": 0.2,
+    "common_nominal_controller": "locked finite-horizon MPC",
+    "horizon_s": 24.0
+  },
+  "threshold_policy": "Thresholds are fixed from physical/control scales before formal seeds 1000--1099. Development seeds may verify implementation but may not be used to optimize formal outcomes.",
+  "planned_new_runs": 1500,
+  "reuse_policy": "MA-CBF-VO, C3BF, Park-inspired 3D DPCBF and original RA-DPCBF rows are reused byte-for-byte; they are not rerun."
+}

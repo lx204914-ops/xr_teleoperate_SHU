@@ -1,0 +1,43 @@
+{
+  "name": "profile2",
+  "source": "F:\\CBFbizhang\\safe_control-main\\3D_RA_DPCBF+HOCBF\\ra_dpcbf_3d\\scenarios.py",
+  "details": "Original native scene factory; profile=2, seed=7; dt=.08.",
+  "obstacles": 7,
+  "frames": 501,
+  "dt": 0.08,
+  "duration_s": 40.0,
+  "workspace": [
+    [
+      0.0,
+      32.0
+    ],
+    [
+      0.0,
+      14.0
+    ],
+    [
+      0.0,
+      10.0
+    ]
+  ],
+  "start": [
+    1.0,
+    5.0,
+    2.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "goal": [
+    30.5,
+    7.0,
+    7.8
+  ],
+  "max_logged_acceleration": 0.3015187964988355,
+  "max_velocity_increment_per_s": 32.782169109659186,
+  "max_discrete_kinematic_defect_m_s": 1.1191966805536115,
+  "source_states_sha256": "0e3dff54f6aaf130a13448a6487903b488db7b1b067b96c5c8f23c30840b5dd6",
+  "file_sha256": "327ccac03755cda47d222b349abcda296ae8fbdf146ffa81eecb5a974b9c5a53",
+  "reference_knots_retained_exactly": true,
+  "interpolation": "quintic Hermite through original p,v,a; instantaneous reference reflections are not bounded-acceleration evidence"
+}

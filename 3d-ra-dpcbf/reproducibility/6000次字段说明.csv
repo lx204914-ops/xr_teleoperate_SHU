@@ -1,0 +1,16 @@
+﻿机器字段,中文含义
+scene_id,场景编号
+seed,种子
+obstacle_count,障碍物数量
+maximum_radius_m,最大障碍半径/m
+method,方法标识
+outcome_class,终止分类
+reached_goal,到达目标
+collision,实体碰撞
+qp_failures,QP失败次数
+duration_s,执行时长/s
+path_length_m,已执行路径/m
+min_body_clearance_m,最小实体间隙/m
+correction_integral,累计控制修正/m²·s⁻³
+execution_path,计时执行路径
+control_dt,控制周期/s

@@ -1,0 +1,10 @@
+{
+  "source": "F:\\CBFbizhang\\safe_control-main\\3D_RA_DPCBF\\results\\corridor_crossing_20261018\\final\\environment.npz",
+  "source_sha256": "45c591518e0f1e3d1fe3d176a16cc6b4cf1c26d895a80ee60248d189afac5b7e",
+  "scene_revision": 4,
+  "obstacles": 4,
+  "duration_s": 24.0,
+  "tape_sha256": "053e9c8c2ec575bab61a4928113cfb1cb58c7c52d118ce0c102d28dedbd2e8b3",
+  "geometry_changed": false,
+  "motion_changed": false
+}

@@ -1,0 +1,14 @@
+{
+  "python": "3.11.5 | packaged by Anaconda, Inc. | (main, Sep 11 2023, 13:26:23) [MSC v.1916 64 bit (AMD64)]",
+  "python_cache_tag": "cpython-311",
+  "python_soabi": null,
+  "platform": "Windows-10-10.0.26200-SP0",
+  "packages": {
+    "numpy": "1.26.4",
+    "scipy": "1.11.1",
+    "numba": "0.61.2",
+    "osqp": "1.1.1",
+    "clarabel": "0.11.1",
+    "matplotlib": "3.7.2"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "control_dt_s": 0.005,
+  "physics_dt_s": 0.0005,
+  "command_axis_limit": 1.5,
+  "tracking_error_requirement": 0.5,
+  "initial_state": "Same position and velocity from frozen scene; identical minimum-norm shared feasible acceleration trim for all methods",
+  "initialization_selection": "All four native initial robust/sampled constraints, no goal progress or outcome search",
+  "execution_reference": "Critically damped nominal-acceleration reference, only in QP objective, never post-filtering safe control",
+  "smoothing_rule": "Reference omega=1/max(tau_motor/4,1/sqrt(kp_att)); penalty S_exec=time_scale/dt",
+  "hard_safety_relaxed": false,
+  "hard_jerk_constraint": false,
+  "hard_acceleration_proximity": false,
+  "original_main_and_baseline_functions_unchanged": true,
+  "stage": "COMPLETED_SHARED_CASE_PHYSICAL_VALIDATION_WITH_LIMITATIONS",
+  "optional_detour_reachability": "Only for Gamma/direction candidates/final augmented QP: intersect safe command set with ||u-a_actual||_1<=0.25. Pause optional detour if no current capacity; retain the already valid base safety command.",
+  "optional_constraint_not_applied_to_baselines_or_base_QP": true,
+  "tracking_preference_priority": "Try native-objective QP inside ||u-a_actual||_1<=0.25, then <=0.4. If neither feasible, execute the already feasible original hard-safe QP command and record fallback. Never report optional preference infeasibility as native QP failure.",
+  "same_preference_policy_for_all_four_methods": true
+}

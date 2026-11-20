@@ -1,0 +1,51 @@
+{
+  "method_invariants": [
+    "h=q-Rdot+s/Tr+beta*s*Z",
+    "all_obstacles_hard_constraints",
+    "no_radius_reset",
+    "no_safety_slack",
+    "Gamma_maximized_over_current_common_safe_inputs",
+    "chi_recomputed_on_direction_reset"
+  ],
+  "paper_code_map": {
+    "eq:ra_radius_generator": "current_method/ra_dpcbf/core.py:boundary_step",
+    "eq:ra_barrier": "current_method/ra_dpcbf/core.py:evaluate",
+    "eq:ra_affine_coefficients": "current_method/dynamic_study/kernel.py:constraints",
+    "eq:ra_initial_feasibility_margin": "current_method/ra_dpcbf/certificates.py:initial_common_margin",
+    "eq:ra_finite_interval_condition": "current_method/ra_dpcbf/certificates.py:finite_interval_check",
+    "eq:ra_direction_selection": "current_method/detour.py:Detour.choose",
+    "eq:ra_detour_input_constraint": "current_method/safety_filter.py:SafetyFilter.solve"
+  },
+  "lifecycle": {
+    "start": "blocking primary, clearance threshold, best executable Gamma >= 2*gamma_min",
+    "hold": "parallel transport; executable Gamma >= gamma_min",
+    "reselect": "search again below threshold; pause if no direction reaches startup threshold",
+    "exit": "goal segment clear of all safety spheres, primary clearance nondecreasing, raw nominal admissible in continuous K; all confirmed for tau_off",
+    "confirmation": "first observed true predicate credits zero elapsed time; interruptions reset timer",
+    "fixed_direction": "Same lifecycle; a preset horizontal LOS-normal direction is transported during holding. No Gamma direction optimization."
+  },
+  "execution_scope": {
+    "current_state": "accurate current obstacle p,v,a only",
+    "continuous_and_sampling_sets_separate": true,
+    "transport": "fine-step numerical approximation; no bit-level proof claimed",
+    "certificate_failure": "not certified; not equivalent to QP infeasibility"
+  },
+  "formal_experiment_execution": {
+    "status": "not_yet_authorized",
+    "generic_run_simulation_cli": "diagnostic and exploratory only",
+    "parameter_override_policy": "Formal batches must not use unrecorded --dt/--nu/--cruise/--tr overrides.",
+    "required_before_formal_batch": "A batch-specific frozen runner must record the exact command, every override, the final effective configuration, source hashes and input hashes before execution."
+  },
+  "current_phase": {
+    "code_completion": true,
+    "mechanism_experiments": true,
+    "corridor_experiments": true,
+    "figures": true,
+    "statistical_experiments": false,
+    "verified_result_roots": [
+      "results/reselection3d_24s_20261018",
+      "results/bounded_box_24s_20261019_102518"
+    ],
+    "scope_note": "These are current-hash mechanism/corridor runs, not the final four-method statistical campaign."
+  }
+}

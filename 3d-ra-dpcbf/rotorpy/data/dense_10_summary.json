@@ -1,0 +1,80 @@
+{
+  "method": "ra",
+  "mission": "goal",
+  "first_arrival_s": 11.795,
+  "path_length_to_arrival_m": 18.06058681739619,
+  "min_body_gap_before_arrival_m": 0.8117849454120343,
+  "post_arrival_status": "completed",
+  "post_arrival_min_body_gap_m": 3.1567829356475925,
+  "final_position_m": [
+    17.99689461324658,
+    -0.0006626518859829167,
+    -0.00047878096622191356
+  ],
+  "final_velocity_mps": [
+    0.006465243997433029,
+    0.0013795737171362402,
+    0.0009758841190654958
+  ],
+  "final_goal_distance_m": 0.003211193800429842,
+  "min_command_CBF_residual": 0.6853380817712837,
+  "min_actual_CBF_residual": 0.6666988149378924,
+  "acceleration_tracking_rmse_mps2": 0.04644761613850461,
+  "acceleration_tracking_max_norm_mps2": 0.361981923083463,
+  "motor_saturated_substeps": 0,
+  "motor_command_clipped_steps": 0,
+  "min_h": 0.5895074719326222,
+  "min_s": 0.42432806232103415,
+  "negative_actual_seconds": 0.0,
+  "max_actual_axis_acceleration": 1.8581668840591579,
+  "min_actual_detour_residual": 0.4415650281834581,
+  "active_detour_seconds": 5.6000000000000005,
+  "execution_preference_counts": {
+    "accepted": 2759,
+    "hard_safety_fallback": 0
+  },
+  "execution_config": {
+    "name": "geometric_acceleration_derivative_v5",
+    "motor_feedback_gain": 4.0,
+    "attitude_kd_rule": "2*sqrt(original_kp)",
+    "feedforward_rate_limit_rad_s": 2.0,
+    "feedforward_acc_limit_rad_s2": 20.0,
+    "aero_feedforward": true,
+    "reference_jerk_differentiability_threshold_m_s3": 20.0,
+    "attitude_gains_source": "kp inherited from RotorPy; kd set by attitude_kd_rule"
+  },
+  "common_initialization": {
+    "acceleration": [
+      -1.089425332152783,
+      0.15837136667380577,
+      -0.3028344886136601
+    ],
+    "quaternion_xyzw": [
+      -0.008314642566026775,
+      -0.05700539552286071,
+      0.0004747680142269258,
+      0.9983391338596389
+    ],
+    "rotor_speeds": [
+      1766.6005437133515,
+      1766.6005437133515,
+      1766.6005437133515,
+      1766.6005437133515
+    ],
+    "minimum_common_initial_margin": 1.444786956739108e-09,
+    "definition": "Minimum-norm intersection of all four initial sampled/tracking sets; same p/v/obstacles, same physical trim for all."
+  },
+  "control_dt_s": 0.005,
+  "tracking_bound_violation_steps": 0,
+  "max_command_jerk_axis_m_s3": 48.95423690583171,
+  "control_p95_ms": 2.914409997174516,
+  "runtime_s": 28.077028200001223,
+  "scene_sha256": "d957aaa7801217ab47df6b3457929af474cec161ade04ba5d2890593bd89bdad",
+  "plant": "RotorPy Crazyflie six-DoF scalar CPU; shared pre-QP reference governor, common trim, 200Hz",
+  "execution_smoothing": 11.359236684941296,
+  "total_control_p95_ms": 5.560040014097467,
+  "total_control_max_ms": 29.39919996424578,
+  "deadline_overrun_steps": 224,
+  "failure": null,
+  "caveat": "Deployment tracking requirement is checked, not globally proved; sampled conditions are independently monitored at 0.5ms."
+}

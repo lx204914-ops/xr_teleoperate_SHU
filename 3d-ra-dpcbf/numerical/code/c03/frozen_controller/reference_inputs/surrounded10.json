@@ -1,0 +1,43 @@
+{
+  "name": "surrounded10",
+  "source": "F:\\CBFbizhang\\safe_control-main\\3D_RA_DPCBF+HOCBF\\results\\6\\preflight_3d\\surrounded10\\obstacle_tapes.npz",
+  "details": "Original frozen 3D reference tape, every saved p/v/a/r sample unchanged.",
+  "obstacles": 10,
+  "frames": 2001,
+  "dt": 0.05,
+  "duration_s": 100.0,
+  "workspace": [
+    [
+      0.0,
+      22.0
+    ],
+    [
+      0.0,
+      15.0
+    ],
+    [
+      0.0,
+      6.0
+    ]
+  ],
+  "start": [
+    1.0,
+    7.5,
+    3.0,
+    1.0,
+    0.0,
+    0.0
+  ],
+  "goal": [
+    20.0,
+    7.5,
+    3.0
+  ],
+  "max_logged_acceleration": 0.13274080218083323,
+  "max_velocity_increment_per_s": 40.659743909080255,
+  "max_discrete_kinematic_defect_m_s": 0.7837959927823098,
+  "source_states_sha256": "b3eadc6ad909662369cd5aaeb539d8feef5365736e8621c03024a8d5976dafc4",
+  "file_sha256": "5c3e6ce99795fc0c11309f7296beef206322d1950ccbf8f9a187b30d173d5f8c",
+  "reference_knots_retained_exactly": true,
+  "interpolation": "quintic Hermite through original p,v,a; instantaneous reference reflections are not bounded-acceleration evidence"
+}

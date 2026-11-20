@@ -1,0 +1,43 @@
+{
+  "name": "breakout10",
+  "source": "F:\\CBFbizhang\\safe_control-main\\3D_RA_DPCBF+HOCBF\\results\\7\\breakout7\\scenario.py",
+  "details": "Original seed=17 breakout generator; full horizon, not terminal-only log.",
+  "obstacles": 10,
+  "frames": 701,
+  "dt": 0.05,
+  "duration_s": 35.0,
+  "workspace": [
+    [
+      0.0,
+      22.0
+    ],
+    [
+      0.0,
+      15.0
+    ],
+    [
+      0.0,
+      6.0
+    ]
+  ],
+  "start": [
+    1.0,
+    7.5,
+    3.0,
+    1.0,
+    0.0,
+    0.0
+  ],
+  "goal": [
+    20.0,
+    7.5,
+    3.0
+  ],
+  "max_logged_acceleration": 0.15423177764466334,
+  "max_velocity_increment_per_s": 27.98941654776521,
+  "max_discrete_kinematic_defect_m_s": 0.7045274545442515,
+  "source_states_sha256": "31f34923b120d2b24beefe994d70f59c0ee8135f0961020005b579f4a8619467",
+  "file_sha256": "efce93ee65e8d6201eab6d0c57b33a3d97c845e9c8552e582bb8bb9833c53c7d",
+  "reference_knots_retained_exactly": true,
+  "interpolation": "quintic Hermite through original p,v,a; instantaneous reference reflections are not bounded-acceleration evidence"
+}

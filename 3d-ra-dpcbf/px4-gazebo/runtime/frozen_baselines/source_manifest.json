@@ -1,0 +1,22 @@
+{
+  "baseline_coefficients.py": {
+    "source": "D:\\cbf_resume_20261026\\52_tetra_pinch_search_20261028\\frozen_original\\code\\baseline_coefficients.py",
+    "sha256": "acb244276c626a6166bd0c88e3722613152e161c11f09c5f3ce26f7dd303533c"
+  },
+  "sampled_baselines.py": {
+    "source": "D:\\cbf_resume_20261026\\52_tetra_pinch_search_20261028\\frozen_original\\code\\sampled_baselines.py",
+    "sha256": "7b67d0e29dbbd39880a9b145cd773ecf508121a8fc4112eb21f2e6d1824cb5f5"
+  },
+  "ma_cbf_vo.py": {
+    "source": "D:\\cbf_resume_20261026\\52_tetra_pinch_search_20261028\\frozen_original\\code\\ma_cbf_vo.py",
+    "sha256": "4f703e58f4693a0bbc0351ca170b1a9a041ee04dfc8a50d7a40cecdc46fc5077"
+  },
+  "scene_tapes.py": {
+    "source": "D:\\cbf_resume_20261026\\52_tetra_pinch_search_20261028\\frozen_original\\current_method_conditional\\scene_tapes.py",
+    "sha256": "5288a85c97a54728c34bce9c3d63cb948c6dc73fc4377a135c4a33cec239b38d"
+  },
+  "dynamic_scenarios.py": {
+    "source": "D:\\cbf_resume_20261026\\52_tetra_pinch_search_20261028\\frozen_original\\current_method_conditional\\dynamic_scenarios.py",
+    "sha256": "bef0cd67c78e508661bc404904e9fe62fb35a98731130954cebf632f032c6072"
+  }
+}

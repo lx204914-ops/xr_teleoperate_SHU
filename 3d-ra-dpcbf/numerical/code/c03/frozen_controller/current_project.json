@@ -1,0 +1,17 @@
+{
+  "method": "linear_clearance_RA_DPCBF_with_executable_detour",
+  "formula": "h=q-Rdot+s/Tr+beta*s*Z; s=D-R",
+  "code": "current_method",
+  "entry": "run_simulation.py",
+  "config": "current_method/method_config.json",
+  "results": "results/current_method/final",
+  "gallery": "results/current_method/final/index.html",
+  "all_obstacles_hard_constraints": true,
+  "HOCBF_fallback": false,
+  "reference_scenes": 10,
+  "continuous_bounded_motion_variants": 10,
+  "extra_mechanism_scenes": 2,
+  "note": "The historical squared-distance package is not the active controller.",
+  "paths_relative_to": "RA_DPCBF_1",
+  "gallery_generated": false
+}

@@ -1,0 +1,6 @@
+{
+  "description": "Analytical certificate input only; not a navigation experiment.",
+  "robot": [0, 0, 3, 0, 0, 0],
+  "obstacles": [[40, 0, 3, 0, 0, 0, 0, 0, 0, 0.5], [0, 40, 3, 0, 0, 0, 0, 0, 0, 0.5]],
+  "initialization": "explicit_R0_zero_rate"
+}

@@ -1,0 +1,2 @@
+# Keep archived SHA256 values stable across Windows/Linux checkouts.
+* -text

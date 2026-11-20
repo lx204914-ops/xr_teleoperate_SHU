@@ -1,0 +1,502 @@
+{
+  "cases": {
+    "n010_s611000": {
+      "family": "ten",
+      "obstacles": 10,
+      "seed": 611000,
+      "duration": 40,
+      "initialize": false,
+      "scene": "${研究归档}/git_scene_variation_20261105/scenes/n010_s611000.npz",
+      "sha256": "6de95bf7562eb1bfcfcf3582fd524088fb30693b017333a088366da93cb30364",
+      "reference_length_m": 24.0,
+      "start": [
+        -1.251698246070188,
+        1.0137305762035593,
+        6.558166359896393,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        22.712334844224078,
+        1.469177685120708,
+        7.79011034330665
+      ],
+      "radius_range_m": [
+        0.15,
+        0.35
+      ],
+      "motion_max_speed": 0.5584517032447556,
+      "motion_max_acceleration": 0.21776190568457696
+    },
+    "n010_s611001": {
+      "family": "ten",
+      "obstacles": 10,
+      "seed": 611001,
+      "duration": 44,
+      "initialize": false,
+      "scene": "${研究归档}/git_scene_variation_20261105/scenes/n010_s611001.npz",
+      "sha256": "20f3e9223e8b70250a6605c98d11a20d643ecc31eb84724250c05a9a9b86c51d",
+      "reference_length_m": 27.0,
+      "start": [
+        1.1966870917955421,
+        1.3761951193605242,
+        6.647014392129374,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        19.196023635414704,
+        21.500003926391987,
+        6.4099424883133205
+      ],
+      "radius_range_m": [
+        0.15,
+        0.5
+      ],
+      "motion_max_speed": 0.5143597634009553,
+      "motion_max_acceleration": 0.21252616928801998
+    },
+    "n010_s611002": {
+      "family": "ten",
+      "obstacles": 10,
+      "seed": 611002,
+      "duration": 48,
+      "initialize": false,
+      "scene": "${研究归档}/git_scene_variation_20261105/scenes/n010_s611002.npz",
+      "sha256": "973a38bd54f250a7b7b40cfd5aff8db716a53f0c1ccb2fbc7216afb7461a43e1",
+      "reference_length_m": 30.0,
+      "start": [
+        0.1610866494904326,
+        0.11132038992915394,
+        7.125056532272018,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        0.6692294766424322,
+        30.106835173454176,
+        7.020731374491367
+      ],
+      "radius_range_m": [
+        0.15,
+        0.7
+      ],
+      "motion_max_speed": 0.7680884310155239,
+      "motion_max_acceleration": 0.38703736730060145
+    },
+    "n010_s611003": {
+      "family": "ten",
+      "obstacles": 10,
+      "seed": 611003,
+      "duration": 52,
+      "initialize": false,
+      "scene": "${研究归档}/git_scene_variation_20261105/scenes/n010_s611003.npz",
+      "sha256": "2ee314430fb3562d468b40710b6c3e551b1ec7e12b2e29fe3aa5534ce46fedd1",
+      "reference_length_m": 33.0,
+      "start": [
+        1.7019531779275563,
+        -0.5353482815168458,
+        6.706505378213176,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        -23.033053871857152,
+        21.29507820359513,
+        5.924261346454328
+      ],
+      "radius_range_m": [
+        0.15,
+        0.35
+      ],
+      "motion_max_speed": 0.6182741030548216,
+      "motion_max_acceleration": 0.2381133395004145
+    },
+    "n010_s611004": {
+      "family": "ten",
+      "obstacles": 10,
+      "seed": 611004,
+      "duration": 56,
+      "initialize": false,
+      "scene": "${研究归档}/git_scene_variation_20261105/scenes/n010_s611004.npz",
+      "sha256": "62f5af8685a760208721ac14d8c100ccad847ef6bfaf3b958cfc2d797f3d36db",
+      "reference_length_m": 36.0,
+      "start": [
+        0.9412422330907799,
+        -1.74401238851862,
+        6.5887258949264575,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        -35.04619654958398,
+        -0.8447499929498061,
+        6.897881207273089
+      ],
+      "radius_range_m": [
+        0.15,
+        0.5
+      ],
+      "motion_max_speed": 0.6918795053965155,
+      "motion_max_acceleration": 0.3059101446733592
+    },
+    "n050_s611005": {
+      "family": "fifty",
+      "obstacles": 50,
+      "seed": 611005,
+      "duration": 40,
+      "initialize": false,
+      "scene": "${研究归档}/git_scene_variation_20261105/scenes/n050_s611005.npz",
+      "sha256": "c44e0facecac0ab8f0c8cbe12730887fb08e71529f6077f440181aae5f3e643d",
+      "reference_length_m": 24.0,
+      "start": [
+        0.9926254933184206,
+        -1.583414021555543,
+        7.766815872195442,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        -16.41148155914656,
+        -18.084514547293793,
+        6.866405329265438
+      ],
+      "radius_range_m": [
+        0.15,
+        0.7
+      ],
+      "motion_max_speed": 0.9214713903231397,
+      "motion_max_acceleration": 0.4629852373912057
+    },
+    "n050_s611006": {
+      "family": "fifty",
+      "obstacles": 50,
+      "seed": 611006,
+      "duration": 44,
+      "initialize": false,
+      "scene": "${研究归档}/git_scene_variation_20261105/scenes/n050_s611006.npz",
+      "sha256": "29ef0e815ba3f8d1b2cc1d199db5e5c0d41e531aa22dfb58e3fb30df9f6426b2",
+      "reference_length_m": 27.0,
+      "start": [
+        0.9944277668483501,
+        0.062076381412543125,
+        7.186243413685942,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        1.224505726863605,
+        -26.907383230497746,
+        8.449300171656422
+      ],
+      "radius_range_m": [
+        0.15,
+        0.35
+      ],
+      "motion_max_speed": 0.6405452301054241,
+      "motion_max_acceleration": 0.24861184196940309
+    },
+    "n050_s611007": {
+      "family": "fifty",
+      "obstacles": 50,
+      "seed": 611007,
+      "duration": 48,
+      "initialize": false,
+      "scene": "${研究归档}/git_scene_variation_20261105/scenes/n050_s611007.npz",
+      "sha256": "fcbe63fb332f5a41d80b0275f391186cc4e2191b4d9bd4428f84ca0779c7c27c",
+      "reference_length_m": 30.0,
+      "start": [
+        1.809235892797235,
+        -0.8708291998645765,
+        7.439567854058886,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        24.006049080881127,
+        -21.02432688019145,
+        6.372789741064192
+      ],
+      "radius_range_m": [
+        0.15,
+        0.5
+      ],
+      "motion_max_speed": 0.7837373175010796,
+      "motion_max_acceleration": 0.34121516600840635
+    },
+    "n050_s611008": {
+      "family": "fifty",
+      "obstacles": 50,
+      "seed": 611008,
+      "duration": 52,
+      "initialize": false,
+      "scene": "${研究归档}/git_scene_variation_20261105/scenes/n050_s611008.npz",
+      "sha256": "6e93e3423732debba7f2c98b86a0bde9de2fbab7d1cb6d6798887d11f5ed09c6",
+      "reference_length_m": 33.0,
+      "start": [
+        0.37173333391822183,
+        -1.4668205702343178,
+        6.925256689799832,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        33.35868917922414,
+        -0.7474057814683478,
+        6.339435538301706
+      ],
+      "radius_range_m": [
+        0.15,
+        0.7
+      ],
+      "motion_max_speed": 0.8589365403100142,
+      "motion_max_acceleration": 0.4085120381540516
+    },
+    "n050_s611009": {
+      "family": "fifty",
+      "obstacles": 50,
+      "seed": 611009,
+      "duration": 56,
+      "initialize": false,
+      "scene": "${研究归档}/git_scene_variation_20261105/scenes/n050_s611009.npz",
+      "sha256": "574c6dc5bb2facbf1646a3ff9599a11645e73282d52de5489611bac489b656bc",
+      "reference_length_m": 36.0,
+      "start": [
+        0.7267687960031028,
+        -0.21484789741011667,
+        7.347535974313158,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        24.101157780471755,
+        27.16466542933195,
+        7.333766678615583
+      ],
+      "radius_range_m": [
+        0.15,
+        0.35
+      ],
+      "motion_max_speed": 0.7490907718395979,
+      "motion_max_acceleration": 0.29633732341769903
+    },
+    "n100_s611010": {
+      "family": "hundred",
+      "obstacles": 100,
+      "seed": 611010,
+      "duration": 40,
+      "initialize": false,
+      "scene": "${研究归档}/git_scene_variation_20261105/scenes/n100_s611010.npz",
+      "sha256": "209a81cd5eed04c5edbda84ccf5de0a60b381084feec041affdeeb43bdd63b92",
+      "reference_length_m": 24.0,
+      "start": [
+        1.2171968913714948,
+        -0.3431194679038807,
+        6.848719336931264,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        0.12240372101980879,
+        23.631839003967848,
+        6.901579399146782
+      ],
+      "radius_range_m": [
+        0.15,
+        0.5
+      ],
+      "motion_max_speed": 0.7973535673310291,
+      "motion_max_acceleration": 0.37692866170740064
+    },
+    "n100_s611011": {
+      "family": "hundred",
+      "obstacles": 100,
+      "seed": 611011,
+      "duration": 44,
+      "initialize": false,
+      "scene": "${研究归档}/git_scene_variation_20261105/scenes/n100_s611011.npz",
+      "sha256": "a2b5b9fc70b5d8eab60d4d2457304f103609e3e91600147872d737b062b2f73c",
+      "reference_length_m": 27.0,
+      "start": [
+        0.07731733301017885,
+        -0.9390211590995929,
+        7.773344000884287,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        -18.495298978612855,
+        18.651212516025485,
+        8.303124988868415
+      ],
+      "radius_range_m": [
+        0.15,
+        0.7
+      ],
+      "motion_max_speed": 0.9075335896891393,
+      "motion_max_acceleration": 0.48154121895179663
+    },
+    "n100_s611012": {
+      "family": "hundred",
+      "obstacles": 100,
+      "seed": 611012,
+      "duration": 48,
+      "initialize": false,
+      "scene": "${研究归档}/git_scene_variation_20261105/scenes/n100_s611012.npz",
+      "sha256": "136d7df3a2b99e71b67844425d98eba4ab424db30208e9a3693815a7972150a9",
+      "reference_length_m": 30.0,
+      "start": [
+        1.9149895241748958,
+        0.5513389837966707,
+        7.110833048753227,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        -28.062946071567236,
+        1.5186872370574278,
+        7.733420210884115
+      ],
+      "radius_range_m": [
+        0.15,
+        0.35
+      ],
+      "motion_max_speed": 0.6464590289961447,
+      "motion_max_acceleration": 0.2407320670779065
+    },
+    "n100_s611013": {
+      "family": "hundred",
+      "obstacles": 100,
+      "seed": 611013,
+      "duration": 52,
+      "initialize": false,
+      "scene": "${研究归档}/git_scene_variation_20261105/scenes/n100_s611013.npz",
+      "sha256": "a0c0e325e26c31e73b61b0f8b91c1905c0365c30087d6305f2f6ef96dab39fc4",
+      "reference_length_m": 33.0,
+      "start": [
+        0.7819906783160948,
+        -1.7148141194265474,
+        7.296946721218458,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        -23.802014659206943,
+        -23.7062969382824,
+        8.297628984779962
+      ],
+      "radius_range_m": [
+        0.15,
+        0.5
+      ],
+      "motion_max_speed": 0.7664912260895835,
+      "motion_max_acceleration": 0.3400851101005863
+    },
+    "n100_s611014": {
+      "family": "hundred",
+      "obstacles": 100,
+      "seed": 611014,
+      "duration": 56,
+      "initialize": false,
+      "scene": "${研究归档}/git_scene_variation_20261105/scenes/n100_s611014.npz",
+      "sha256": "e2994ad62b2f2149d5a59a6e232875760dbc13cbbd36cefccb6ea95371f0ec0b",
+      "reference_length_m": 36.0,
+      "start": [
+        1.9498533300975507,
+        -0.559499366170447,
+        7.789200070997115,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        1.3627741924519259,
+        -36.54954371715312,
+        7.179244580455683
+      ],
+      "radius_range_m": [
+        0.15,
+        0.7
+      ],
+      "motion_max_speed": 0.8818040033147871,
+      "motion_max_acceleration": 0.46423625614298264
+    },
+    "n100_s611015": {
+      "family": "hundred",
+      "obstacles": 100,
+      "seed": 611015,
+      "duration": 40,
+      "initialize": false,
+      "scene": "${研究归档}/git_scene_variation_20261105/scenes/n100_s611015.npz",
+      "sha256": "54a0b2f0e6f32c549e07fcefb1cde4465aa229f5653b2962890e2f3a0f9141ed",
+      "reference_length_m": 24.0,
+      "start": [
+        -1.7119462249603323,
+        0.2366189175805924,
+        6.718119426840899,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        14.783641707652723,
+        -17.1859980628192,
+        6.128207304813047
+      ],
+      "radius_range_m": [
+        0.15,
+        0.35
+      ],
+      "motion_max_speed": 0.6250189079052194,
+      "motion_max_acceleration": 0.2364359726105009
+    }
+  },
+  "methods": [
+    "ma_cbf_vo",
+    "c3bf",
+    "park",
+    "ra"
+  ],
+  "control_dt_s": 0.02,
+  "tracking_budget_mps2": 0.5,
+  "nominal_cruise_mps": 1.5,
+  "physical_input_component_limit_mps2": 1.5,
+  "nominal_input_component_limit_mps2": 0.8,
+  "arrival_radius_m": 0.25,
+  "arrival_source": "First Gazebo physical-truth sample in target ball",
+  "terminal_policy": "Freeze virtual world and terminate SITL immediately upon first entry; no settling or landing",
+  "control_algorithm_unchanged": true,
+  "old_results_retained": true,
+  "publication_phase_ms": 18.0,
+  "phase_change_note": "Same20ms control cycle and .5 budget; reserve phase18ms for measured candidate-QP peaks. Actual receipt cadence and residuals independently audited.",
+  "trial_count": 64,
+  "independent_scene_count": 16,
+  "reused_D83_trials": 36,
+  "allocation": {
+    "10": 5,
+    "50": 5,
+    "100": 6
+  },
+  "time_limit_rule": "ceil(2*straight_reference_length/1.5 + 8) seconds",
+  "seed_range": [
+    611000,
+    611015
+  ],
+  "scene_selection": "Geometry only, no controller success filtering",
+  "initial_state": "Native PX4 preparation to scenario x/y/z, near-zero velocity; measured takeover retained",
+  "reference": "Same frozen goal-seeking nominal MPC, different straight references; no added waypoint planner"
+}

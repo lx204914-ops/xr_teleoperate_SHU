@@ -1,3 +1,6 @@
+<!-- 3D-RA-DPCBF入口 -->
+> **三维动态避障研究：** [3D RA-DPCBF中文展示与代码](3d-ra-dpcbf/README.md)｜[6000次数值统计](3d-ra-dpcbf/numerical/README.md)｜[PX4＋Gazebo验证](3d-ra-dpcbf/px4-gazebo/README.md)。原遥操作项目内容保留在下方。
+
 <div align="center">
   <h1 align="center"> xr_teleoperate </h1>
   <a href="https://www.unitree.com/" target="_blank">

@@ -1,0 +1,26 @@
+{
+  "parameters": {
+    "MC_ROLLRATE_K": 1.0,
+    "MC_PITCHRATE_K": 1.0,
+    "MC_ROLL_P": 6.5,
+    "MC_PITCH_P": 6.5,
+    "MC_ROLLRATE_P": 0.15,
+    "MC_PITCHRATE_P": 0.15,
+    "MC_ROLLRATE_D": 0.003,
+    "MC_PITCHRATE_D": 0.003,
+    "MC_ROLLRATE_I": 0.2,
+    "MC_PITCHRATE_I": 0.2,
+    "MPC_VEL_LP": 0.0,
+    "MPC_VELD_LP": 5.0,
+    "MPC_ACC_DECOUPLE": 0,
+    "MPC_USE_HTE": 1
+  },
+  "rationale": "Execution-only candidate: revert amplified attitude/rate gains to exact official defaults after measured motor saturation and vertical overshoot. Not yet accepted.",
+  "calibration_accepted": false,
+  "firmware_sha256": "eeb37b2708909381f88bf56de1c00d69dac7eb0dc8640074cee6c357a83cf67a",
+  "navigation_diagnostic_enabled": true,
+  "unresolved_response_peak_mps2": 0.6141218905930195,
+  "fast_IMU_feedback_gain": 1.0,
+  "execution_interface": "acceleration",
+  "shared_execution_slew": false
+}

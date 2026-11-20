@@ -1,0 +1,19 @@
+__pycache__/
+*.pyc
+.venv/
+cache/
+runtime_cache/
+outputs/
+**/runs/
+**/build/
+**/results/
+*.ulg
+*.so
+*.exe
+# Selected research artifacts override the parent teleoperation repository rules.
+!**/data/
+!**/data/**
+!**/figures/
+!**/figures/*.png
+!**/media/
+!**/media/*.mp4

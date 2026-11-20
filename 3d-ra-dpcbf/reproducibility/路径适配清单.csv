@@ -1,0 +1,4 @@
+﻿文件,修改
+px4-gazebo/runtime/code/platform_session.py,仅将PX4目录和Python路径改为环境变量/当前用户目录；不改控制方程、参数或运行策略
+px4-gazebo/runtime/code/isolated_telemetry.py,仅把辅助采集进程Python路径改为CBF_PYTHON环境变量；算法不变
+px4-gazebo/runtime/code/record_continuous_gif.py,仅把辅助采集进程Python路径改为CBF_PYTHON环境变量；算法不变

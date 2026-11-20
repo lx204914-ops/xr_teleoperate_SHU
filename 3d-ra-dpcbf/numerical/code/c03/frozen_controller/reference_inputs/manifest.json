@@ -1,0 +1,432 @@
+[
+  {
+    "name": "default8",
+    "source": "F:\\CBFbizhang\\safe_control-main\\3D_RA_DPCBF+HOCBF\\results\\6\\preflight_3d\\default8\\obstacle_tapes.npz",
+    "details": "Original frozen 3D reference tape, every saved p/v/a/r sample unchanged.",
+    "obstacles": 8,
+    "frames": 2001,
+    "dt": 0.05,
+    "duration_s": 100.0,
+    "workspace": [
+      [
+        0.0,
+        22.0
+      ],
+      [
+        0.0,
+        15.0
+      ],
+      [
+        0.0,
+        6.0
+      ]
+    ],
+    "start": [
+      1.0,
+      7.5,
+      3.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      20.0,
+      7.5,
+      3.0
+    ],
+    "max_logged_acceleration": 0.15590657342406677,
+    "max_velocity_increment_per_s": 43.460164418393234,
+    "max_discrete_kinematic_defect_m_s": 0.8710695595919342,
+    "source_states_sha256": "2eae0452ddd1b261cc495a1c890b5eae0e4ede6cfe7fc93f526dcac85746f209",
+    "file_sha256": "1b57b3e41b4a754786acb3ecf1c61ba1d99646dfa07bc9dd31260e4ad5cf2a05",
+    "reference_knots_retained_exactly": true,
+    "interpolation": "quintic Hermite through original p,v,a; instantaneous reference reflections are not bounded-acceleration evidence"
+  },
+  {
+    "name": "surrounded10",
+    "source": "F:\\CBFbizhang\\safe_control-main\\3D_RA_DPCBF+HOCBF\\results\\6\\preflight_3d\\surrounded10\\obstacle_tapes.npz",
+    "details": "Original frozen 3D reference tape, every saved p/v/a/r sample unchanged.",
+    "obstacles": 10,
+    "frames": 2001,
+    "dt": 0.05,
+    "duration_s": 100.0,
+    "workspace": [
+      [
+        0.0,
+        22.0
+      ],
+      [
+        0.0,
+        15.0
+      ],
+      [
+        0.0,
+        6.0
+      ]
+    ],
+    "start": [
+      1.0,
+      7.5,
+      3.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      20.0,
+      7.5,
+      3.0
+    ],
+    "max_logged_acceleration": 0.13274080218083323,
+    "max_velocity_increment_per_s": 40.659743909080255,
+    "max_discrete_kinematic_defect_m_s": 0.7837959927823098,
+    "source_states_sha256": "b3eadc6ad909662369cd5aaeb539d8feef5365736e8621c03024a8d5976dafc4",
+    "file_sha256": "5c3e6ce99795fc0c11309f7296beef206322d1950ccbf8f9a187b30d173d5f8c",
+    "reference_knots_retained_exactly": true,
+    "interpolation": "quintic Hermite through original p,v,a; instantaneous reference reflections are not bounded-acceleration evidence"
+  },
+  {
+    "name": "dense50",
+    "source": "F:\\CBFbizhang\\safe_control-main\\3D_RA_DPCBF+HOCBF\\results\\6\\preflight_3d\\n50_r07_seed10000\\obstacle_tapes.npz",
+    "details": "Original frozen 3D reference tape, every saved p/v/a/r sample unchanged.",
+    "obstacles": 50,
+    "frames": 2001,
+    "dt": 0.05,
+    "duration_s": 100.0,
+    "workspace": [
+      [
+        0.0,
+        22.0
+      ],
+      [
+        0.0,
+        15.0
+      ],
+      [
+        0.0,
+        6.0
+      ]
+    ],
+    "start": [
+      1.0,
+      7.5,
+      3.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      20.0,
+      7.5,
+      3.0
+    ],
+    "max_logged_acceleration": 0.15702321227273291,
+    "max_velocity_increment_per_s": 66.8374495711749,
+    "max_discrete_kinematic_defect_m_s": 1.5853796316367585,
+    "source_states_sha256": "e9a60c4ac2714411fc5fe6141580de303c13e78b2bd0abfe6493fe54f909818f",
+    "file_sha256": "9ad099153d4c32c3d58631685554616b2211e3201885a967efe7c26b496a29bc",
+    "reference_knots_retained_exactly": true,
+    "interpolation": "quintic Hermite through original p,v,a; instantaneous reference reflections are not bounded-acceleration evidence"
+  },
+  {
+    "name": "breakout10",
+    "source": "F:\\CBFbizhang\\safe_control-main\\3D_RA_DPCBF+HOCBF\\results\\7\\breakout7\\scenario.py",
+    "details": "Original seed=17 breakout generator; full horizon, not terminal-only log.",
+    "obstacles": 10,
+    "frames": 701,
+    "dt": 0.05,
+    "duration_s": 35.0,
+    "workspace": [
+      [
+        0.0,
+        22.0
+      ],
+      [
+        0.0,
+        15.0
+      ],
+      [
+        0.0,
+        6.0
+      ]
+    ],
+    "start": [
+      1.0,
+      7.5,
+      3.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      20.0,
+      7.5,
+      3.0
+    ],
+    "max_logged_acceleration": 0.15423177764466334,
+    "max_velocity_increment_per_s": 27.98941654776521,
+    "max_discrete_kinematic_defect_m_s": 0.7045274545442515,
+    "source_states_sha256": "31f34923b120d2b24beefe994d70f59c0ee8135f0961020005b579f4a8619467",
+    "file_sha256": "efce93ee65e8d6201eab6d0c57b33a3d97c845e9c8552e582bb8bb9833c53c7d",
+    "reference_knots_retained_exactly": true,
+    "interpolation": "quintic Hermite through original p,v,a; instantaneous reference reflections are not bounded-acceleration evidence"
+  },
+  {
+    "name": "main10",
+    "source": "F:\\CBFbizhang\\safe_control-main\\3D_RA_DPCBF+HOCBF\\ra_dpcbf_3d\\scenarios.py",
+    "details": "Original native scene factory; profile=0, seed=0; dt=.08.",
+    "obstacles": 10,
+    "frames": 501,
+    "dt": 0.08,
+    "duration_s": 40.0,
+    "workspace": [
+      [
+        0.0,
+        20.0
+      ],
+      [
+        0.0,
+        12.0
+      ],
+      [
+        0.0,
+        8.0
+      ]
+    ],
+    "start": [
+      1.0,
+      6.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      19.0,
+      6.0,
+      6.0
+    ],
+    "max_logged_acceleration": 0.6574001044031968,
+    "max_velocity_increment_per_s": 26.47329636594247,
+    "max_discrete_kinematic_defect_m_s": 0.934841333716932,
+    "source_states_sha256": "77085bd6e7df1da4aa5097deb8222e1914203fdd77e980e857fad39e50394516",
+    "file_sha256": "cbe917e706483ae235c5f528f7c70eaae0335fb9af1bc4e8341c12d1b356b488",
+    "reference_knots_retained_exactly": true,
+    "interpolation": "quintic Hermite through original p,v,a; instantaneous reference reflections are not bounded-acceleration evidence"
+  },
+  {
+    "name": "profile1",
+    "source": "F:\\CBFbizhang\\safe_control-main\\3D_RA_DPCBF+HOCBF\\ra_dpcbf_3d\\scenarios.py",
+    "details": "Original native scene factory; profile=1, seed=7; dt=.08.",
+    "obstacles": 4,
+    "frames": 501,
+    "dt": 0.08,
+    "duration_s": 40.0,
+    "workspace": [
+      [
+        0.0,
+        32.0
+      ],
+      [
+        0.0,
+        14.0
+      ],
+      [
+        0.0,
+        10.0
+      ]
+    ],
+    "start": [
+      1.0,
+      5.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      30.5,
+      7.0,
+      7.8
+    ],
+    "max_logged_acceleration": 0.20546551938385366,
+    "max_velocity_increment_per_s": 25.57207057363818,
+    "max_discrete_kinematic_defect_m_s": 0.7042185813150701,
+    "source_states_sha256": "a389fb677d5c6a5fe7fdbe2078c073153bcb5c5b1f2998bff2e21dca3339b4b8",
+    "file_sha256": "18088b4721372081959ac18bbe69d024cbf62c7919e889d9165c2e1cf4cc10e2",
+    "reference_knots_retained_exactly": true,
+    "interpolation": "quintic Hermite through original p,v,a; instantaneous reference reflections are not bounded-acceleration evidence"
+  },
+  {
+    "name": "profile2",
+    "source": "F:\\CBFbizhang\\safe_control-main\\3D_RA_DPCBF+HOCBF\\ra_dpcbf_3d\\scenarios.py",
+    "details": "Original native scene factory; profile=2, seed=7; dt=.08.",
+    "obstacles": 7,
+    "frames": 501,
+    "dt": 0.08,
+    "duration_s": 40.0,
+    "workspace": [
+      [
+        0.0,
+        32.0
+      ],
+      [
+        0.0,
+        14.0
+      ],
+      [
+        0.0,
+        10.0
+      ]
+    ],
+    "start": [
+      1.0,
+      5.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      30.5,
+      7.0,
+      7.8
+    ],
+    "max_logged_acceleration": 0.3015187964988355,
+    "max_velocity_increment_per_s": 32.782169109659186,
+    "max_discrete_kinematic_defect_m_s": 1.1191966805536115,
+    "source_states_sha256": "0e3dff54f6aaf130a13448a6487903b488db7b1b067b96c5c8f23c30840b5dd6",
+    "file_sha256": "327ccac03755cda47d222b349abcda296ae8fbdf146ffa81eecb5a974b9c5a53",
+    "reference_knots_retained_exactly": true,
+    "interpolation": "quintic Hermite through original p,v,a; instantaneous reference reflections are not bounded-acceleration evidence"
+  },
+  {
+    "name": "profile3",
+    "source": "F:\\CBFbizhang\\safe_control-main\\3D_RA_DPCBF+HOCBF\\ra_dpcbf_3d\\scenarios.py",
+    "details": "Original native scene factory; profile=3, seed=7; dt=.08.",
+    "obstacles": 10,
+    "frames": 501,
+    "dt": 0.08,
+    "duration_s": 40.0,
+    "workspace": [
+      [
+        0.0,
+        32.0
+      ],
+      [
+        0.0,
+        14.0
+      ],
+      [
+        0.0,
+        10.0
+      ]
+    ],
+    "start": [
+      1.0,
+      5.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      30.5,
+      7.0,
+      7.8
+    ],
+    "max_logged_acceleration": 0.33912959511566365,
+    "max_velocity_increment_per_s": 33.77243251751527,
+    "max_discrete_kinematic_defect_m_s": 1.1340851856446723,
+    "source_states_sha256": "eab10aa4329c22485eedcf6c0c1992257aa507514e519d0c4e311426304c6687",
+    "file_sha256": "859022572c67fa3d186c9de73fca9884d15f3b35318d93c94f9831bd5aa0c8d9",
+    "reference_knots_retained_exactly": true,
+    "interpolation": "quintic Hermite through original p,v,a; instantaneous reference reflections are not bounded-acceleration evidence"
+  },
+  {
+    "name": "profile4",
+    "source": "F:\\CBFbizhang\\safe_control-main\\3D_RA_DPCBF+HOCBF\\ra_dpcbf_3d\\scenarios.py",
+    "details": "Original native scene factory; profile=4, seed=7; dt=.08.",
+    "obstacles": 14,
+    "frames": 501,
+    "dt": 0.08,
+    "duration_s": 40.0,
+    "workspace": [
+      [
+        0.0,
+        32.0
+      ],
+      [
+        0.0,
+        14.0
+      ],
+      [
+        0.0,
+        10.0
+      ]
+    ],
+    "start": [
+      1.0,
+      5.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      30.5,
+      7.0,
+      7.8
+    ],
+    "max_logged_acceleration": 0.39872024518377935,
+    "max_velocity_increment_per_s": 38.24045865492374,
+    "max_discrete_kinematic_defect_m_s": 1.3880342894050173,
+    "source_states_sha256": "72cc0febcc09dacd07be51e9677ddaafd1933025a1dcb4495bbecab2b7fc891f",
+    "file_sha256": "196e3794d38d8ad2588131568924841e78e736523d240e91e225ce5a2190cd31",
+    "reference_knots_retained_exactly": true,
+    "interpolation": "quintic Hermite through original p,v,a; instantaneous reference reflections are not bounded-acceleration evidence"
+  },
+  {
+    "name": "profile5",
+    "source": "F:\\CBFbizhang\\safe_control-main\\3D_RA_DPCBF+HOCBF\\ra_dpcbf_3d\\scenarios.py",
+    "details": "Original native scene factory; profile=5, seed=20266214; dt=.08.",
+    "obstacles": 18,
+    "frames": 501,
+    "dt": 0.08,
+    "duration_s": 40.0,
+    "workspace": [
+      [
+        0.0,
+        32.0
+      ],
+      [
+        0.0,
+        14.0
+      ],
+      [
+        0.0,
+        10.0
+      ]
+    ],
+    "start": [
+      1.0,
+      5.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      30.5,
+      7.0,
+      7.8
+    ],
+    "max_logged_acceleration": 0.5465345783876252,
+    "max_velocity_increment_per_s": 40.77832477362951,
+    "max_discrete_kinematic_defect_m_s": 1.449723450814998,
+    "source_states_sha256": "dbaea082fd8f0d922c7d3fe9dbe9b988f86753aac47c3d5d5649c3f91792a7c7",
+    "file_sha256": "1ef85340d862144c06226c5028004b95a3e1566246bf3aff2b92b5258cacba53",
+    "reference_knots_retained_exactly": true,
+    "interpolation": "quintic Hermite through original p,v,a; instantaneous reference reflections are not bounded-acceleration evidence"
+  }
+]

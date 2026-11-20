@@ -1,0 +1,317 @@
+{
+  "files": {
+    "code/candidate_projection_backend.py": "1cbc9623443b59fe8b4e8f2a2c875efa433ef001bfcd33e97706a7081f179323",
+    "code/deployment_safety_filter.py": "fb095a4dbeb500e18554c98989accbf598dfd2259c914a72e99f748e90f94a76",
+    "code/periodic_publish75.cc": "5398c374bff8988a69eae2519ab308abbd61f3752ba061e609ecb5e97e68c5be",
+    "code/terminal_receipts.py": "6bfffb2319ddec9e84fbcfbe1a9b3a1d4e8bdd64dfa3a52cd10f01f4ca5c24ad",
+    "code/reference_style.py": "5cb85ce5ed7b158c6fd5a7ae3026953b641dac8d867fcc04f3066d88ec4fecee",
+    "code/platform_session.py": "c4adbeff38f6965fabedfe7f3e977f5ff61bee378d5d59b479044a5bddfc793f",
+    "code/first_arrival_platform.py": "e7137a7731281966b5d73ce87004958563435648a96b0860613e5b4067ea887d",
+    "code/execution_response_profile.py": "7e371ad5745f7c3ccb21091c24756a9bcbd967133357c28ccd4e5116e9f59fac",
+    "code/audit_continuous_sequence.py": "64da8eb9a03c2fa157e10200653412c6f2bdd906b21831a9d75108785dad3de5",
+    "code/warm_geometry_backend.py": "e3946bc5b600e9be8fa3dcea0a39ad65af0f3a2c9bc2f10715b037c37d13a6aa",
+    "code/comparison_manager.py": "0c5105785d34a1be74a7e0f4254c86b50d3fdb76bb791203e36ee2226c7efba5",
+    "code/native_window.py": "c10cce6851d723a40492229cc551765e610d52548bf8e770ba23f621ec0ab6cb",
+    "code/dense_exact_backend.py": "1e2a43caff74f29693a741d9c073dadac5f2b83751746ac26101b23946b66a9b",
+    "code/affinity_isolation77.py": "d7b2ab8431b1bfd8c5c72212dcfa64f9e8cbceb23cce176af02247228e09a2e0",
+    "code/rpc_client.py": "369ef8da688f82e7e061eb9e072a060ccd77513bf2e3c3fed166c66940a43c86",
+    "code/audit_comparison_display.py": "53523244ebab6a7343114cfcd8b575cb250e5bd86015969638b1e49b41351b46",
+    "code/deployment_stable_progress.py": "be0a189a796ccea6c860e4b84ec33ea56f9d4d167574a6576456b380dcd8de8e",
+    "code/record_continuous_gif.py": "a5556faca2e1da631643917910e3c426be6f1883af4250bbafe9cf86bc9e2a4a",
+    "code/isolated_telemetry.py": "b92600dfc8062298144e54b3ccde8f3b994fe3db4e431c190c6b82e9d04c6e61",
+    "code/audit_dense_recording.py": "a5b854e1a081b7489576965a8a0c18f34936c1f2313cd1a5ff9c237c2c03a441",
+    "code/kkt_warm_backend.py": "f8d99ef93214ec3e8829a51276d7101965887d69ac0de4707ee755067023e8e3",
+    "code/run_continuous.py": "7a944c265cb450ded3e324882bff515a400c12c4e71d954e12d4da4ac7858d56",
+    "code/candidate_hold_bitround75.py": "ed74600004942785fb8fd44a930e2fe0cf139007f58729226363c608b36ff7c7",
+    "code/native_gui.config": "7435c24bbf7bc3ac45fc9b88c5ed353eda7ec65a4c6c8e6c1ad2bda46c7068dd",
+    "code/audit_relative_display.py": "0b564c26913d493ad36a736c54e121d95c5f09c699a71503beb096a5d36cfdb1",
+    "code/flight_tracking_profile.py": "5500498b02969cae10e61895d2cb2b31b7d4671f8c5aedf01f3334176d25a84e",
+    "code/performance_monitor.py": "695aaf505367edde06e14a7a54b279efb51fbc28a7f1b67eaa2a19fa30b1966d",
+    "code/receipt_reconciliation.py": "fbc0aeea747fa1ba1086c3a7dc8e3142b43d87fd60835fbbca93404dcbd5d76a",
+    "code/actor_logger.py": "c76116960e3e014c668a03ac003ccc7f8bf8e6334b817be71978b73e64587f31",
+    "code/px4_controller.py": "269c51566c811e0b0a652301d97a35b9fc4b629123369976f147933b051f5bf0",
+    "code/directional_interval.py": "a2a0028d1ff62701e4b5e600e4381c82a8d61a9f08e2d1cd816840c93d73798e",
+    "code/scoped_cleanup.py": "487b61826265cca6e97acc97f838fe30e2c245e177e9b0651f3e90130d4eea33",
+    "code/record_comparison.py": "90c268071d821907c9d5d0724e3897a13f608020179f57f6169c119e80159caf",
+    "code/goal_eval_backend.py": "9b2919c9b53cbe8e8145dd012bbc594569d82001180902a51e9bc8ad76a18487",
+    "code/periodic_publish75.py": "20ffd07d4570424bcf5b137c2ec910dfb47da1a61fe20e4ca8821b625b1abef7",
+    "code/refine_park_certificate83.py": "d27224583f832ea4f22d5d04a2c0302ed5cc6b60404969a6d8c146186e8d6bf1",
+    "code/safe_preparation.py": "447d6bbbb052499b9e94e455ae76d5b03061245e2f045d3e70847af109b1a2d1",
+    "code/shared_execution_box.py": "f76263e1d52fc89d566d33f82988adc925acaaca648ee0f4fb26158b8addd850",
+    "code/continuous_instrumentation.py": "54d7866a1d3866fc94537108c39ae6556b78f791bf159fb96e59986829492b94",
+    "code/ground_rows.py": "67da3b993630c07c9cff791ab1747d728f040f223b91a9ac2ef7a49a84d8718c",
+    "code/gz_bridge.py": "4e2a5bb23f254e0fc04b5715014a7faa484116832156e7378070da573d579cdf",
+    "code/deployed_controller.py": "5e1e538e821b615f01ed9d029a79aed7434c70077093db635cbc8c8a6913b1b3",
+    "code/audit_continuous.py": "63a07a2b16bae6f767554e9f323257c0273f3f1e51fa84572daf29fd8ca4c3e0",
+    "code/native_display_process.py": "1c9d5c380755849933f88eb6f0e069283bba5af9d7bc6468212b38879b8eb17b",
+    "code/park_certificate_recovery.py": "3aec3fe81c1ec5bd23be188ba97f23d31159a17155d2354e65f151f008707eb1",
+    "code/deployment_detour.py": "88d55f7949597c474339d74de14c0fda16a2d0cb9a9bb6f905c1e2433e62cab3",
+    "code/native_overlay.py": "b8d3982ede1b361ed9d918d9e89aa01af2aef98e2912c44cfd53479650dba9ed",
+    "code/baseline_adapter.py": "929a0d27e6e8306827b9a841202bf3ebad6f222afa1cd6e2c7be20592e9ab22f",
+    "code/native_audit_reader.py": "156a9c6e670bfe07355f9223e0eb98497d5b5825772371f3b0eca22d05764c14",
+    "code/build_comparison_report.py": "8fd06c4047e975d1db0e78cf23b53141bab91a20a67041a03bfb5465191c1877",
+    "code/live_manager.py": "056c0902e5730241ad111f6782cdba1295651e5e095961fa10a7aaa99d6ae65d",
+    "code/RaObstacleMotion.cc": "7b01727118861f8eba2b7dd28839a0614fe7f107b3053ec5814b1a0b3d3976d9",
+    "code/px4_safety_filter.py": "9d635c890f7febc1a45fa34cd9e46539ddaa2ce0762f9e70553f46692c87f25d",
+    "code/audit_recording_coverage.py": "9f34ed42d81fcd7b1ff0f9ad4d2723cfb5804847328fd589d9a50137f921522f",
+    "code/verify_avoidance.py": "7d588f2f9f24b9f0adba36223a7beba2c3091ee5585d10a6b34595dde91ff728",
+    "code/candidate_hold_fast.py": "d942ea3649eb3451270de808310b41eb839629d3317e5d5d871af857352274b8",
+    "code/runtime_optimizer.py": "1b739c641ed41d7f9a8982c2ab2f24e7a0095263538ff59d70c11697d59a692e",
+    "code/execution_runtime.py": "7efae91fdceca3a83575dac9a698399344777df0236bacbc62da570cd6b60f1c",
+    "code/accepted_input_receipts75.py": "e43ef39d4d99684be33041a3fcec0fd892c0276491197a1d3d245ac171717499",
+    "code/equivalent_sparse_workspace.py": "4882c64a8ee26e0dc1d258663ab13b887f62640c6d66c08f2bdf9a413746a0c8",
+    "code/flight_protocol.py": "2e20703a3583d47dcafe8918ae7d1c0d7b90eeaa23ce5db5d22d4dbce798e258",
+    "code/deployment_goal_aware_detour.py": "40a470f501495b361c633123f56ece3227a5f34dcd1034571e64fdf76d33e221",
+    "code/bit_round_helpers75.py": "3e0c8cb1e92cefc635a46176e05deeb43227c9775942e715232a2092a5f56046",
+    "code/certificate_pool.py": "6bb706347876897be7a2186b2480b053fb1f2efe105e4f4f2f60f5346fb60b5a",
+    "code/px4_adapter_base.py": "de9699639b9782ae3617730266aef22c2a8bfa78e458011e33f5939e10ef2c55",
+    "code/native_renderer/RAView.qrc": "8cf84945953afaba1c280f4f233846bd0c961ff4a4fac719f2bc5b8274717fcb",
+    "code/native_renderer/RAView.cc": "ca8eb070055c089a7ee3eec6c6f4b3ad15b15998ba114714e922449a86ec5a0b",
+    "code/native_renderer/CMakeLists.txt": "a87797631836ca8494953693f3778c9ad57908716655e7fa7c7cc97aad0964c6",
+    "code/native_renderer/RAView.qml": "565a3776686111ae9156ca353aaaedd9bc74630762d7c449ba67db3448a85a36",
+    "frozen_controller/conditional_gate.py": "20fe5a5ce092f13ab38426074056e6e0d9e385d6b26e060590a44aff071d7a80",
+    "frozen_controller/method_config.json": "9fb4d590a4f681e0f6310f86a2981facc8c3127d9d79005031d279717ca40ad4",
+    "frozen_controller/sampled_safety.py": "57aa48454a5d64fee80ec9fd3ff6f057d02b92059ed0eb84583de9a0be5b40a1",
+    "frozen_controller/sparse_projection.py": "3b2f79e965e61abb1117d0f39bd42ad412966faf1b15897a1bad5b79c5f087c6",
+    "frozen_controller/stable_progress.py": "79c177395cd4cf42e0955f5d5df9e0f0fcc3efee515fe019d9d0a01bd05a646e",
+    "frozen_controller/goal_aware_detour.py": "5500f97b5ea2b42d50db034a9358f86654d725569c24dc7e7ce51a14743a81ee",
+    "frozen_controller/configuration.py": "d7abf0ddd00785fadc46e489b58948639c27ddf67fa9a60952e888afa346c03d",
+    "frozen_controller/detour.py": "a2986ceb157d418ddb2708bf632865ea2d054bf08cb6d11ef2787bafada8365b",
+    "frozen_controller/nominal_mpc.py": "7cc67f93a3b44262ab43adebebb756beafd81fe653791885265e37571a31463a",
+    "frozen_controller/safety_filter.py": "e8a77b6573344d3866e1629fd2abfcab14c6f0af67940a090d52fc5517505498",
+    "frozen_controller/source_manifest.json": "e2c58f7ae83963d17d1b012508d9f1d3ddf83fd2af9a8ca6fb4a0ab3dd68fd13",
+    "frozen_controller/ra_dpcbf/certificates.py": "62cd5dc9c8112e255a1a84436aa4a934e4b9eef1a07eba2be7175cc10e16d44e",
+    "frozen_controller/ra_dpcbf/core.py": "62bdcff463dd6b0b959b23a8d6bafbe220ae6e45040c34c86986ba1181f971eb",
+    "frozen_controller/ra_dpcbf/__init__.py": "39dfc5a6dfaa54fcb50162e730b75a7b3670bc87cdfd7d49cfcc31e5df468c40",
+    "frozen_controller/dynamic_study/kernel.py": "66f3599c9d529434336f0517366bff8b1d882558bf0ecaf83a73e9bc14386ab5",
+    "frozen_baselines/baseline_coefficients.py": "acb244276c626a6166bd0c88e3722613152e161c11f09c5f3ce26f7dd303533c",
+    "frozen_baselines/dynamic_scenarios.py": "bef0cd67c78e508661bc404904e9fe62fb35a98731130954cebf632f032c6072",
+    "frozen_baselines/scene_tapes.py": "5288a85c97a54728c34bce9c3d63cb948c6dc73fc4377a135c4a33cec239b38d",
+    "frozen_baselines/sampled_baselines.py": "7b67d0e29dbbd39880a9b145cd773ecf508121a8fc4112eb21f2e6d1824cb5f5",
+    "frozen_baselines/ma_cbf_vo.py": "4f703e58f4693a0bbc0351ca170b1a9a041ee04dfc8a50d7a40cecdc46fc5077",
+    "frozen_baselines/source_manifest.json": "c42229f957b81c46ead48dda1e99c12c765b581d362753960947111b0887825a",
+    "scenes/smooth_N050_S2000.npz": "00ba192a5a4f06fb62adc3fe745a527e86aac041c8e0949ef773399d5fdc425a",
+    "scenes/ten_faster_same_layout.npz": "40f6e6a1776df00adb0c0d43a1f8e5ee454f06dab56fa90f8bafd4d0c811b4d9",
+    "scenes/smooth_N100_S2000_observe40.npz": "c409398d86150f2db60b32e2ec31331be86b5503966c0bad881aa9c5ce0ee4dc",
+    "firmware_source/candidate_MulticopterPositionControl.hpp": "e59fe2f80e18b4f44f33c266d15a822e215f92d8d7060c028457c080409e762b",
+    "firmware_source/original_mc_att_control.hpp": "dc84d8dee79bac9022f684b9757e4fa7b2c2f3a17e33fe1a6a0740b9662dc114",
+    "firmware_source/original_mavlink_receiver.cpp": "cc65819a0400fb208cf9cdfd4b07c8b3d8bf138b1a63d66ac8aaeae1fa63edde",
+    "firmware_source/candidate_mavlink_receiver.cpp": "e68b6c81fd6dea949bcea679c9290dd527666ca37a49ed7e74004e31f0fbb01b",
+    "firmware_source/original_MulticopterPositionControl.hpp": "3457048dc6cc2dd48178f5de14db9ee201bebff7fdbb82083d84d34a4167f14f",
+    "firmware_source/candidate_MulticopterPositionControl.cpp": "5394b5990dbd73b595e367ad720de76d7b1337cfc2c032647c82fece3a99558d",
+    "firmware_source/candidate_mc_att_control_main.cpp": "c3cc6f0af07da59182484cbc4eb6bf2f52cad2e08612ee22f73fd6982f996901",
+    "firmware_source/candidate_PositionControl.cpp": "2617d47c9c7bc2a378734b1058f80fad5f5102a20340969dceb96d94063bccfb",
+    "firmware_source/original_mc_att_control_main.cpp": "b3e97ba33f65264edb62f060c4744175b8640cf694000012ff37037684a26539",
+    "firmware_source/original_MulticopterPositionControl.cpp": "307ba6adba91819f052806eac8497d65775b94d956901caafcc500f203ba18cb",
+    "firmware_source/active_binary_reference.json": "874e7354c1396af7c32d7ffe32d424bb0250551c9ac33ad6c3533a973f4b891b",
+    "firmware_source/candidate_mc_att_control.hpp": "9155236b1af0b5a399e59629f0ab15d574051e077cd020d0109edfa579bf7381",
+    "firmware_source/original_PositionControl.cpp": "6c2eb1132c41b9cb8c87a1def69278327d45117553e88b2ece6944f3d5e96f08",
+    "build/feedback_receipt_bin/px4": "eeb37b2708909381f88bf56de1c00d69dac7eb0dc8640074cee6c357a83cf67a"
+  },
+  "plan": [
+    {
+      "case": "hundred",
+      "method": "ra",
+      "repeat": 1
+    },
+    {
+      "case": "hundred",
+      "method": "ra",
+      "repeat": 2
+    },
+    {
+      "case": "hundred",
+      "method": "ra",
+      "repeat": 3
+    },
+    {
+      "case": "ten",
+      "method": "ma_cbf_vo",
+      "repeat": 1
+    },
+    {
+      "case": "ten",
+      "method": "ma_cbf_vo",
+      "repeat": 2
+    },
+    {
+      "case": "ten",
+      "method": "ma_cbf_vo",
+      "repeat": 3
+    },
+    {
+      "case": "ten",
+      "method": "c3bf",
+      "repeat": 1
+    },
+    {
+      "case": "ten",
+      "method": "c3bf",
+      "repeat": 2
+    },
+    {
+      "case": "ten",
+      "method": "c3bf",
+      "repeat": 3
+    },
+    {
+      "case": "ten",
+      "method": "park",
+      "repeat": 1
+    },
+    {
+      "case": "ten",
+      "method": "park",
+      "repeat": 2
+    },
+    {
+      "case": "ten",
+      "method": "park",
+      "repeat": 3
+    },
+    {
+      "case": "ten",
+      "method": "ra",
+      "repeat": 1
+    },
+    {
+      "case": "ten",
+      "method": "ra",
+      "repeat": 2
+    },
+    {
+      "case": "ten",
+      "method": "ra",
+      "repeat": 3
+    },
+    {
+      "case": "fifty",
+      "method": "ma_cbf_vo",
+      "repeat": 1
+    },
+    {
+      "case": "fifty",
+      "method": "ma_cbf_vo",
+      "repeat": 2
+    },
+    {
+      "case": "fifty",
+      "method": "ma_cbf_vo",
+      "repeat": 3
+    },
+    {
+      "case": "fifty",
+      "method": "c3bf",
+      "repeat": 1
+    },
+    {
+      "case": "fifty",
+      "method": "c3bf",
+      "repeat": 2
+    },
+    {
+      "case": "fifty",
+      "method": "c3bf",
+      "repeat": 3
+    },
+    {
+      "case": "fifty",
+      "method": "park",
+      "repeat": 1
+    },
+    {
+      "case": "fifty",
+      "method": "park",
+      "repeat": 2
+    },
+    {
+      "case": "fifty",
+      "method": "park",
+      "repeat": 3
+    },
+    {
+      "case": "fifty",
+      "method": "ra",
+      "repeat": 1
+    },
+    {
+      "case": "fifty",
+      "method": "ra",
+      "repeat": 2
+    },
+    {
+      "case": "fifty",
+      "method": "ra",
+      "repeat": 3
+    },
+    {
+      "case": "hundred",
+      "method": "ma_cbf_vo",
+      "repeat": 1
+    },
+    {
+      "case": "hundred",
+      "method": "ma_cbf_vo",
+      "repeat": 2
+    },
+    {
+      "case": "hundred",
+      "method": "ma_cbf_vo",
+      "repeat": 3
+    },
+    {
+      "case": "hundred",
+      "method": "c3bf",
+      "repeat": 1
+    },
+    {
+      "case": "hundred",
+      "method": "c3bf",
+      "repeat": 2
+    },
+    {
+      "case": "hundred",
+      "method": "c3bf",
+      "repeat": 3
+    },
+    {
+      "case": "hundred",
+      "method": "park",
+      "repeat": 1
+    },
+    {
+      "case": "hundred",
+      "method": "park",
+      "repeat": 2
+    },
+    {
+      "case": "hundred",
+      "method": "park",
+      "repeat": 3
+    }
+  ],
+  "control_period_ms": 20,
+  "tracking_budget_mps2": 0.5,
+  "main_sources_identical": true,
+  "control_loop_identical": false,
+  "renderer": "native_NVIDIA",
+  "GUI_max_fps": 20,
+  "gazebo_actual": "8.14.0",
+  "original_gazebo": "8.15.0",
+  "platform_environment_changed": true,
+  "new_physical_validation_pending": true,
+  "native_display_revision": 3,
+  "measurement_filter_tau_s": 0.005,
+  "old_measurement_filter_tau_s": 0.035,
+  "execution_only_change": "Restore official attitude P6.5 and rate multiplier1.0; preserve safety-controller outputs and constraints",
+  "source_stage": "${研究归档}/git_execution_attitude_20261103",
+  "control_loop_change": "Summary description35ms→5ms only; algorithm loop unchanged",
+  "offline_evidence": "qa/imu_filter_replay.json",
+  "candidate_not_yet_accepted": true,
+  "changes": [
+    "exact CSC allocation reuse",
+    "Park certified row refinement and recovery",
+    "18ms preferred publish phase within unchanged20ms period"
+  ],
+  "original_method_scene_budget_unchanged": true
+}
