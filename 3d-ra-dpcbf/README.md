@@ -47,7 +47,7 @@
 
 ![抛物面左右平移与曲率动态变化](numerical/media/抛物面动态变化.gif)
 
-动画按冻结代码中的 $h=0$ 公式绘制；无人机、灰色障碍物和紫色预留半径用于解释几何关系。
+动画按冻结代码中的 $`h=0`$ 公式绘制；无人机、灰色障碍物和紫色预留半径用于解释几何关系。
 ① 半径变化率改变，边界左右平移；② 距离余量改变，顶点与曲率变化；③ 两者共同变化。
 **s=0时仍严格画成平面。** 无人机与障碍物为空间示意，蓝色边界属于相对速度空间，比例独立；这是冻结状态参数扫描，不是新的飞行轨迹。
 [绘图源码](reproducibility/render_dynamic_boundary.py) · [逐帧参数](numerical/data/抛物面动态变化_参数.csv)
@@ -70,57 +70,81 @@ flowchart LR
 
 ### ① 安全边界怎么算
 
-对第 $j$ 个障碍，定义相对位置、速度及其径向和横向分量：
+对第 $`j`$ 个障碍，定义相对位置、速度及其径向和横向分量：
 
-$$r_j=p_{o,j}-p,\quad w_j=v_{o,j}-v,\quad D_j=\|r_j\|,\quad e_j=r_j/D_j,$$
-$$q_j=e_j^\top w_j,\qquad z_j=(I-e_je_j^\top)w_j,\qquad s_j=D_j-R_j.$$
+```math
+r_j=p_{o,j}-p,\quad w_j=v_{o,j}-v,\quad D_j=\|r_j\|,\quad e_j=r_j/D_j,
+```
+```math
+q_j=e_j^\top w_j,\qquad z_j=(I-e_je_j^\top)w_j,\qquad s_j=D_j-R_j.
+```
 
-其中 $p,v$ 是自身位置、速度，$p_{o,j},v_{o,j}$ 是障碍位置、速度；$D_j$ 是中心距离，$R_j$ 是要求预留的中心距离，$s_j$ 是边界余量。
+其中 $`p,v`$ 是自身位置、速度， $`p_{o,j},v_{o,j}`$ 是障碍位置、速度； $`D_j`$ 是中心距离， $`R_j`$ 是要求预留的中心距离， $`s_j`$ 是边界余量。
 
 参考半径先由接近速度确定，再限幅、平滑。数值冻结代码实际使用
 
-$$c_j=\frac{\sqrt{q_j^2+\varepsilon_c^2}-q_j}{2},\qquad R_{0,j}=r_{\mathrm{robot}}+r_{o,j}+m_0,$$
-$$R_{\mathrm{des},j}=R_{0,j}+\tau_d c_j+\frac{c_j^2}{2a_{\mathrm{br}}}+m_{\mathrm{pred}},\qquad R_{\mathrm{ref},j}=\operatorname{clip}(R_{\mathrm{des},j},R_{0,j},R_{0,j}+\Delta R).$$
+```math
+c_j=\frac{\sqrt{q_j^2+\varepsilon_c^2}-q_j}{2},\qquad R_{0,j}=r_{\mathrm{robot}}+r_{o,j}+m_0,
+```
+```math
+R_{\mathrm{des},j}=R_{0,j}+\tau_d c_j+\frac{c_j^2}{2a_{\mathrm{br}}}+m_{\mathrm{pred}},\qquad R_{\mathrm{ref},j}=\mathrm{clip}(R_{\mathrm{des},j},R_{0,j},R_{0,j}+\Delta R).
+```
 
-$c_j$ 是平滑的接近速度，$\tau_d c_j$ 为反应距离，$c_j^2/(2a_{\mathrm{br}})$ 为设计制动距离。$m_0$ 为基础预留，$m_{\mathrm{pred}}$ 为附加预测余量；$\Delta R$ 限制半径增量。数值版本取 $\varepsilon_c=0.03\,\mathrm{m/s}$、$a_{\mathrm{br}}=1.2\,\mathrm{m/s^2}$、$m_0=0.15\,\mathrm m$、$m_{\mathrm{pred}}=0$。$a_{\mathrm{br}}$ 是冻结的半径设计参数，不应默认等同于所有执行平台的有效控制能力。
+ $`c_j`$ 是平滑的接近速度， $`\tau_d c_j`$ 为反应距离， $`c_j^2/(2a_{\mathrm{br}})`$ 为设计制动距离。 $`m_0`$ 为基础预留， $`m_{\mathrm{pred}}`$ 为附加预测余量； $`\Delta R`$ 限制半径增量。数值版本取 $`\varepsilon_c=0.03\,\mathrm{m/s}`$ 、 $`a_{\mathrm{br}}=1.2\,\mathrm{m/s^2}`$ 、 $`m_0=0.15\,\mathrm m`$ 、 $`m_{\mathrm{pred}}=0`$ 。 $`a_{\mathrm{br}}`$ 是冻结的半径设计参数，不应默认等同于所有执行平台的有效控制能力。
 
 实际半径通过二阶动态系统平滑变化，屏障同时考虑边界移动和横向运动：
 
-$$\ddot R_j=\omega_R^2(R_{\mathrm{ref},j}-R_j)-2\omega_R\dot R_j,$$
-$$\boxed{h_j=q_j-\dot R_j+\left(T_r^{-1}+\beta\|z_j\|^2\right)s_j.}$$
+```math
+\ddot R_j=\omega_R^2(R_{\mathrm{ref},j}-R_j)-2\omega_R\dot R_j,
+```
+```math
+\boxed{h_j=q_j-\dot R_j+\left(T_r^{-1}+\beta\|z_j\|^2\right)s_j.}
+```
 
-**当 $s_j=0$ 时，$h_j=\dot s_j$。** 也就是说，到达预留边界时，横向速度不能抵消正在穿过边界的危险。$T_r>0$ 是时间尺度，$\beta\ge0$ 调节横向项，$\omega_R>0$ 调节半径响应速度。
+**当 $`s_j=0`$ 时， $`h_j=\dot s_j`$ 。** 也就是说，到达预留边界时，横向速度不能抵消正在穿过边界的危险。 $`T_r>0`$ 是时间尺度， $`\beta\ge0`$ 调节横向项， $`\omega_R>0`$ 调节半径响应速度。
 
-正文与动图的系数关系为 $\beta=\gamma_\perp/(T_rZ_{\max})$；$Z_j=\|z_j\|^2$，$Z_{\max}$ 的单位为 $\mathrm{m^2/s^2}$。$q_j<0$ 表示接近障碍；$s_j$ 是扣除动态预留后的余量，不能与实体间隙混用。[冻结公式实现](numerical/code/conditional_6000/current_method_conditional/dynamic_study/kernel.py)
+正文与动图的系数关系为 $`\beta=\gamma_\perp/(T_rZ_{\max})`$ ； $`Z_j=\|z_j\|^2`$ ， $`Z_{\max}`$ 的单位为 $`\mathrm{m^2/s^2}`$ 。 $`q_j<0`$ 表示接近障碍； $`s_j`$ 是扣除动态预留后的余量，不能与实体间隙混用。[冻结公式实现](numerical/code/conditional_6000/current_method_conditional/dynamic_study/kernel.py)
 
-对 $\dot p=v,\ \dot v=u$，屏障导数可写为 $\dot h_j=A_j+B_j^\top u$，其中 $B_j=-e_j-2\beta s_jz_j$。基础安全输入集合为
+对 $`\dot p=v,\ \dot v=u`$ ，屏障导数可写为 $`\dot h_j=A_j+B_j^\top u`$ ，其中 $`B_j=-e_j-2\beta s_jz_j`$ 。基础安全输入集合为
 
-$$K_{\mathrm{safe}}=\{u\in U:A_j+B_j^\top u+k_hh_j\ge\Delta_{h,j},\ \forall j\}.$$
+```math
+K_{\mathrm{safe}}=\{u\in U:A_j+B_j^\top u+k_hh_j\ge\Delta_{h,j},\ \forall j\}.
+```
 
-$U$ 是有限加速度输入范围，$k_h>0$ 是屏障反馈增益，$\Delta_{h,j}$ 是对应执行版本的预留量。数值与飞控阶段的预留方式分别由各自配置确定。
+ $`U`$ 是有限加速度输入范围， $`k_h>0`$ 是屏障反馈增益， $`\Delta_{h,j}`$ 是对应执行版本的预留量。数值与飞控阶段的预留方式分别由各自配置确定。
 
 ### ② 遇到堵塞怎么绕
 
-选择与障碍连线垂直的单位方向 $d_j$，并定义沿此方向的相对绕行速度：
+选择与障碍连线垂直的单位方向 $`d_j`$ ，并定义沿此方向的相对绕行速度：
 
-$$d_j^\top e_j=0,\quad \|d_j\|=1,\qquad \chi_j=d_j^\top(v-v_{o,j})=-d_j^\top z_j.$$
+```math
+d_j^\top e_j=0,\quad \|d_j\|=1,\qquad \chi_j=d_j^\top(v-v_{o,j})=-d_j^\top z_j.
+```
 
 方向随连线运输时，
 
-$$\dot\chi_j=d_j^\top(u-a_{o,j})-\frac{q_j}{D_j}\chi_j.$$
+```math
+\dot\chi_j=d_j^\top(u-a_{o,j})-\frac{q_j}{D_j}\chi_j.
+```
 
-$a_{o,j}$ 是障碍加速度。保留全部安全约束后，这个方向还能提出多强的要求，由方向容量衡量：
+ $`a_{o,j}`$ 是障碍加速度。保留全部安全约束后，这个方向还能提出多强的要求，由方向容量衡量：
 
-$$\Gamma_j(d_j)=\max_{u\in K_{\mathrm{safe}}}\left[d_j^\top(u-a_{o,j})+\left(k_\perp-\frac{q_j}{D_j}\right)\chi_j\right],$$
-$$\Gamma_{\mathrm{exe},j}=\Gamma_j-\Delta_{\perp,j}.$$
+```math
+\Gamma_j(d_j)=\max_{u\in K_{\mathrm{safe}}}\left[d_j^\top(u-a_{o,j})+\left(k_\perp-\frac{q_j}{D_j}\right)\chi_j\right],
+```
+```math
+\Gamma_{\mathrm{exe},j}=\Gamma_j-\Delta_{\perp,j}.
+```
 
-只有容量满足相应版本的激活条件，才采用 $\nu_j=\min\{\nu_{\mathrm{req}},\eta\Gamma_{\mathrm{exe},j}\}$，并加入
+只有容量满足相应版本的激活条件，才采用 $`\nu_j=\min\{\nu_{\mathrm{req}},\eta\Gamma_{\mathrm{exe},j}\}`$ ，并加入
 
-$$\dot\chi_j+k_\perp\chi_j\ge\nu_j+\Delta_{\perp,j},\qquad 0<\eta<1.$$
+```math
+\dot\chi_j+k_\perp\chi_j\ge\nu_j+\Delta_{\perp,j},\qquad 0<\eta<1.
+```
 
-$k_\perp$ 是横向反馈增益，$\Delta_{\perp,j}$ 是绕行采样预留，$\nu_{\mathrm{req}}$ 是请求强度。**容量不足就不强加绕行，不能通过撤销安全约束获得通路。**
+ $`k_\perp`$ 是横向反馈增益， $`\Delta_{\perp,j}`$ 是绕行采样预留， $`\nu_{\mathrm{req}}`$ 是请求强度。**容量不足就不强加绕行，不能通过撤销安全约束获得通路。**
 
-后期版本还比较候选控制的短期目标推进 $P(d)=\|p_g-p\|-\|p_g-\hat p_d(H)\|$，并加入方向保持与退出。$p_g$ 为目标，$\hat p_d(H)$ 为短期预测位置。它是局部评价，没有全局到达保证；6000次阶段与后期C03/PX4版本的选向逻辑须分别看待。
+后期版本还比较候选控制的短期目标推进 $`P(d)=\|p_g-p\|-\|p_g-\hat p_d(H)\|`$ ，并加入方向保持与退出。 $`p_g`$ 为目标， $`\hat p_d(H)`$ 为短期预测位置。它是局部评价，没有全局到达保证；6000次阶段与后期C03/PX4版本的选向逻辑须分别看待。
 
 ### ③ 这项研究主要贡献什么
 
@@ -149,7 +173,7 @@ $k_\perp$ 是横向反馈增益，$\Delta_{\perp,j}$ 是绕行采样预留，$\n
 
 ![成功运行的控制干预箱线图](numerical/figures/控制干预箱线图.png)
 
-$J=\sum\Delta t\|u-u_{\mathrm{MPC}}\|^2$ 表示累计偏离名义控制的程度，**不是CPU耗时，也不能单凭低值判断方法更好**。上图按各自成功样本，下图按四方法共同成功场景；样本数写在横轴下。100障碍共同成功只有1例，只画点。
+ $`J=\sum\Delta t\|u-u_{\mathrm{MPC}}\|^2`$ 表示累计偏离名义控制的程度，**不是CPU耗时，也不能单凭低值判断方法更好**。上图按各自成功样本，下图按四方法共同成功场景；样本数写在横轴下。100障碍共同成功只有1例，只画点。
 
 [6000次中文逐次结果](numerical/data/6000次逐次结果_中文.csv) · [60单元汇总](numerical/data/60单元汇总.csv) · [原始字段表](numerical/data/formal_6000.csv)
 
