@@ -59,6 +59,11 @@ def main():
         for r in selected:
             p=ROOT/'px4-gazebo'/r['路径']
             assert hashlib.sha256(p.read_bytes()).hexdigest()==r['SHA256']
+        if (ROOT/'px4-gazebo/data/第一版36次逐项原表.csv').exists():
+            first=rows(ROOT/'px4-gazebo/data/第一版36次逐项原表.csv')
+            assert len(first)==len({r['session'] for r in first})==36
+            sessions={r['session'] for r in first}
+            assert all(r['会话'] in sessions for r in selected if r['障碍物数量']!='4')
         boundary=json.loads((ROOT/'reproducibility/抛物面动画核验.json').read_text(encoding='utf8'))
         assert boundary['最大h零边界残差']<1e-10 and boundary['帧数']==64
     print(json.dumps({'核验':'通过','文件SHA数量':len(checks),'Python语法文件数':len(code),

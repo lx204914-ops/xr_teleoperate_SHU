@@ -37,11 +37,10 @@
 
 ![抛物面左右平移与曲率动态变化](numerical/media/抛物面动态变化.gif)
 
-动画由冻结代码参数计算 $h=0$ 的边界：$q=\dot R-s/T_r-\beta s(z_1^2+z_2^2)$。
-① 仅改变半径变化率，边界左右平移；② 仅改变距离余量，顶点位置和曲率共同改变；③ 两者共同变化。
-**当 $s=0$ 时横向项消失，边界严格退化为平面，不能继续画成有曲率的抛物面。**
-这是一段明确标注的公式参数扫描，不是新增飞行轨迹或安全证明。红点为零横向速度处的截点（有曲率时为顶点），所有坐标均为相对速度。
-[绘图代码](reproducibility/render_dynamic_boundary.py) · [逐帧参数](numerical/data/抛物面动态变化_参数.csv)
+动画按冻结代码中的 $h=0$ 公式绘制，并恢复无人机、灰色障碍物和紫色预留半径样式。
+① 半径变化率改变，边界左右平移；② 距离余量改变，顶点与曲率变化；③ 两者共同变化。
+**s=0时仍严格画成平面。** 无人机与障碍物为空间示意，蓝色边界属于相对速度空间，比例独立；这是冻结状态参数扫描，不是新的飞行轨迹。
+[绘图源码](reproducibility/render_dynamic_boundary.py) · [逐帧参数](numerical/data/抛物面动态变化_参数.csv)
 
 ## 方法怎样工作
 
@@ -157,74 +156,133 @@ $J=\sum\Delta t\|u-u_{\mathrm{MPC}}\|^2$ 表示累计偏离名义控制的程度
 
 四障碍中RA首次到达14.330 s，长于MA的9.655 s，不能写成RA效率始终更高。C3BF虽然首次进入目标区域，但到达后两秒未稳定。右侧密集动画只有RA案例，不是四方法密集对比。
 
-## PX4＋Gazebo：16格精选对比
+## PX4＋Gazebo：恢复第一版36次的大图展示
 
-![100次汇总](px4-gazebo/figures/100次到达与执行检查.png)
+| 方法 | 运行次数 | 到达 | 第一版执行检查通过 |
+|---|---:|---:|---:|
+| RA-DPCBF | 9 | 8 | 8 |
+| Park适配 | 9 | 4 | 3 |
+| MA-CBF-VO | 9 | 8 | 0 |
+| C3BF | 9 | 0 | 0 |
 
-完整100次中，每法25次：RA到达22/执行通过16，Park到达12/通过7，MA到达15/通过0，C3BF到达0/通过0。100次含原36次与新增64次，不是100个独立场景，也不代表硬实时或真机保证。
+这里恢复第一版D82的展示与统计口径；不是后续100次的结果。4障碍另属更早独立批次。按场景分组，每个方法单独全宽显示。
 
-下面仅展示4种情况×4种方法。四障碍为较早版本，其余采用主100次中的共享场景；**精选依据原片覆盖完整度，不按RA成绩筛选**。50/100障碍C3BF只有原生停止截图，保留真实终止状态。
+### 4障碍物：四方法大图
 
-### 4障碍物：四方法对比
+来源：较早D65四障碍独立批次，不属于36次。
 
-四障碍为较早D65原生录像，不与D89主100次合并统计。
+#### MA-CBF-VO
 
-| MA-CBF-VO | C3BF |
-|:---:|:---:|
-| ![4障碍_MA-CBF-VO_GIF](px4-gazebo/media/four_obstacles/ma_cbf_vo.gif) | ![4障碍_C3BF_GIF](px4-gazebo/media/four_obstacles/c3bf.gif) |
-| 历史记录：到达 | 历史记录：触发地面碰撞包络检查，未到达 |
+![4障碍_MA-CBF-VO_GIF](px4-gazebo/media/four_obstacles/ma_cbf_vo.gif)
 
-| Park适配 | RA-DPCBF |
-|:---:|:---:|
-| ![4障碍_Park适配_GIF](px4-gazebo/media/four_obstacles/park.gif) | ![4障碍_RA-DPCBF_GIF](px4-gazebo/media/four_obstacles/ra.gif) |
-| 历史记录：到达 | 历史记录：到达 |
+历史到达记录：是；较早执行口径，不与后期严格通过次数混算。
 
+#### C3BF
 
-### 10障碍物：四方法对比
+![4障碍_C3BF_GIF](px4-gazebo/media/four_obstacles/c3bf.gif)
 
-共享场景：`n010_s611004`。
+历史到达记录：否；较早执行口径，不与后期严格通过次数混算。
 
-| MA-CBF-VO | C3BF |
-|:---:|:---:|
-| ![10障碍_MA-CBF-VO_GIF](px4-gazebo/media/all_trials/compare_n010_s611004_ma_cbf_vo_20261105_115348_0641.gif) | ![10障碍_C3BF_GIF](px4-gazebo/media/all_trials/compare_n010_s611004_c3bf_20261105_115526_d439.gif) |
-| 到达：是；执行检查：未通过 | 到达：否；执行检查：未通过 |
+#### Park适配
 
-| Park适配 | RA-DPCBF |
-|:---:|:---:|
-| ![10障碍_Park适配_GIF](px4-gazebo/media/all_trials/compare_n010_s611004_park_20261105_115739_b706.gif) | ![10障碍_RA-DPCBF_GIF](px4-gazebo/media/all_trials/compare_n010_s611004_ra_20261105_115928_6b68.gif) |
-| 到达：是；执行检查：通过 | 到达：是；执行检查：通过 |
+![4障碍_Park适配_GIF](px4-gazebo/media/four_obstacles/park.gif)
 
+历史到达记录：是；较早执行口径，不与后期严格通过次数混算。
 
-### 50障碍物：四方法对比
+#### RA-DPCBF
 
-共享场景：`n050_s611006`。
+![4障碍_RA-DPCBF_GIF](px4-gazebo/media/four_obstacles/ra.gif)
 
-| MA-CBF-VO | C3BF |
-|:---:|:---:|
-| ![50障碍_MA-CBF-VO_GIF](px4-gazebo/media/all_trials/compare_n050_s611006_ma_cbf_vo_20261105_105934_c427.gif) | ![50障碍_C3BF_停止截图](px4-gazebo/media/all_trials/compare_n050_s611006_c3bf_20261105_110115_a9e2.png) |
-| 到达：是；执行检查：未通过 | 到达：否；执行检查：未通过；**原件仅停止截图** |
-
-| Park适配 | RA-DPCBF |
-|:---:|:---:|
-| ![50障碍_Park适配_GIF](px4-gazebo/media/all_trials/compare_n050_s611006_park_20261105_110222_4208.gif) | ![50障碍_RA-DPCBF_GIF](px4-gazebo/media/n050_s611006_RA-DPCBF_通过.gif) |
-| 到达：否；执行检查：未通过 | 到达：是；执行检查：通过 |
+历史到达记录：是；较早执行口径，不与后期严格通过次数混算。
 
 
-### 100障碍物：四方法对比
+### 10障碍物：四方法大图
 
-共享场景：`n100_s611013`。
+来源：D82第一版36次；原则上采用当时登记的代表片；十障碍MA首片有弹窗遮挡，改用同批次第2次原片，未采用D89后续批次。
 
-| MA-CBF-VO | C3BF |
-|:---:|:---:|
-| ![100障碍_MA-CBF-VO_GIF](px4-gazebo/media/all_trials/compare_n100_s611013_ma_cbf_vo_20261105_114825_ef61.gif) | ![100障碍_C3BF_停止截图](px4-gazebo/media/all_trials/compare_n100_s611013_c3bf_20261105_114943_15d3.png) |
-| 到达：否；执行检查：未通过 | 到达：否；执行检查：未通过；**原件仅停止截图** |
+#### MA-CBF-VO
 
-| Park适配 | RA-DPCBF |
-|:---:|:---:|
-| ![100障碍_Park适配_GIF](px4-gazebo/media/all_trials/compare_n100_s611013_park_20261105_115053_cb17.gif) | ![100障碍_RA-DPCBF_GIF](px4-gazebo/media/all_trials/compare_n100_s611013_ra_20261105_114531_f0b0.gif) |
-| 到达：是；执行检查：未通过 | 到达：是；执行检查：未通过 |
+![10障碍_MA-CBF-VO_GIF](px4-gazebo/media/first36/compare_ten_ma_cbf_vo_20261103_222606_4408.gif)
 
-[16格来源与说明](px4-gazebo/精选16格对比.md) · [全部100次原始录像及结果](px4-gazebo/全部100次录像.md)
+到达：**是**；第一版执行检查：**未通过**。
+
+#### C3BF
+
+![10障碍_C3BF_GIF](px4-gazebo/media/first36/compare_ten_c3bf_20261103_222828_0a66.gif)
+
+到达：**否**；第一版执行检查：**未通过**。
+
+#### Park适配
+
+![10障碍_Park适配_GIF](px4-gazebo/media/first36/compare_ten_park_20261103_223304_d095.gif)
+
+到达：**是**；第一版执行检查：**通过**。
+
+#### RA-DPCBF
+
+![10障碍_RA-DPCBF_GIF](px4-gazebo/media/first36/compare_ten_ra_20261103_223644_14a3.gif)
+
+到达：**是**；第一版执行检查：**通过**。
+
+
+### 50障碍物：四方法大图
+
+来源：D82第一版36次；原则上采用当时登记的代表片；十障碍MA首片有弹窗遮挡，改用同批次第2次原片，未采用D89后续批次。
+
+#### MA-CBF-VO
+
+![50障碍_MA-CBF-VO_GIF](px4-gazebo/media/first36/compare_fifty_ma_cbf_vo_20261103_224017_0d0f.gif)
+
+到达：**是**；第一版执行检查：**未通过**。
+
+#### C3BF
+
+![50障碍_C3BF_停止截图](px4-gazebo/media/first36/compare_fifty_c3bf_20261103_224358_3d96.png)
+
+到达：**否**；第一版执行检查：**未通过**。 **原件为早停截图，没有导航录像。**
+
+#### Park适配
+
+![50障碍_Park适配_GIF](px4-gazebo/media/first36/compare_fifty_park_20261103_224641_ccf8.gif)
+
+到达：**否**；第一版执行检查：**未通过**。
+
+#### RA-DPCBF
+
+![50障碍_RA-DPCBF_GIF](px4-gazebo/media/first36/compare_fifty_ra_20261103_225021_3101.gif)
+
+到达：**是**；第一版执行检查：**通过**。
+
+
+### 100障碍物：四方法大图
+
+来源：D82第一版36次；原则上采用当时登记的代表片；十障碍MA首片有弹窗遮挡，改用同批次第2次原片，未采用D89后续批次。
+
+#### MA-CBF-VO
+
+![100障碍_MA-CBF-VO_GIF](px4-gazebo/media/first36/compare_hundred_ma_cbf_vo_20261103_225418_571c.gif)
+
+到达：**是**；第一版执行检查：**未通过**。
+
+#### C3BF
+
+![100障碍_C3BF_停止截图](px4-gazebo/media/first36/compare_hundred_c3bf_20261103_225925_cb71.png)
+
+到达：**否**；第一版执行检查：**未通过**。 **原件为早停截图，没有导航录像。**
+
+#### Park适配
+
+![100障碍_Park适配_GIF](px4-gazebo/media/first36/compare_hundred_park_20261103_230254_3539.gif)
+
+到达：**否**；第一版执行检查：**未通过**。
+
+#### RA-DPCBF
+
+![100障碍_RA-DPCBF_GIF](px4-gazebo/media/first36/compare_hundred_ra_20261103_220651_6fff.gif)
+
+到达：**是**；第一版执行检查：**通过**。
+
+[第一版大图专页与来源说明](px4-gazebo/精选16格对比.md) · [后续100次仅作归档入口](px4-gazebo/全部100次录像.md)
 
 ## 查看数据与复现
 
