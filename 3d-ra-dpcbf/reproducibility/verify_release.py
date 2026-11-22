@@ -49,6 +49,18 @@ def main():
             if not target or '://' in target or target.startswith('mailto:'):continue
             if not (p.parent/target).exists():broken.append((str(p.relative_to(ROOT)),target))
     assert not broken,broken
+    selected_path=ROOT/'px4-gazebo/data/16格精选展示索引.csv'
+    if selected_path.exists():
+        selected=rows(selected_path)
+        assert len(selected)==16 and sum(r['媒体类型']=='GIF' for r in selected)==14
+        for n in ['4','10','50','100']:
+            group=[r for r in selected if r['障碍物数量']==n]
+            assert len(group)==4 and len({r['场景'] for r in group})==1
+        for r in selected:
+            p=ROOT/'px4-gazebo'/r['路径']
+            assert hashlib.sha256(p.read_bytes()).hexdigest()==r['SHA256']
+        boundary=json.loads((ROOT/'reproducibility/抛物面动画核验.json').read_text(encoding='utf8'))
+        assert boundary['最大h零边界残差']<1e-10 and boundary['帧数']==64
     print(json.dumps({'核验':'通过','文件SHA数量':len(checks),'Python语法文件数':len(code),
       '正式逐次记录':len(data),'PX4逐次记录':len(runs),'PX4全部媒体':len(media),'本地文档断链数':len(broken),
       '边界':'离线核验，不代表科学控制重跑、Linux SITL复现或真机验证通过'},ensure_ascii=False,indent=2))
