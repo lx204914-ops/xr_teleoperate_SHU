@@ -19,7 +19,7 @@ def main():
  rr,aa=np.meshgrid(rad,angle);z1=rr*np.cos(aa);z2=rr*np.sin(aa)
  fig=plt.figure(figsize=(14,5),dpi=105)
  axes=[fig.add_subplot(1,3,i+1,projection='3d') for i in range(3)]
- fig.text(.5,.035,'相对速度空间的公式参数扫描｜红点为边界顶点｜s=0时退化为平面｜示意动画，不是新增飞行实验',ha='center',fontsize=11,color='#43566A')
+ fig.text(.5,.035,'相对速度空间的公式参数扫描｜红点为零横向速度截点｜s=0时退化为平面｜示意动画，不是新增飞行实验',ha='center',fontsize=11,color='#43566A')
  frames=[];records=[];max_residual=0.
  for k in range(64):
   phase=2*np.pi*k/64;rd=.7*np.sin(phase);s=1.15+.85*np.cos(phase)
