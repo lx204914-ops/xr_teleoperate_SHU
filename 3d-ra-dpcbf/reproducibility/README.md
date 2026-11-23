@@ -10,7 +10,7 @@ python reproducibility/verify_release.py
 python reproducibility/render_results.py
 ```
 
-第一条核对文件SHA256、CSV/JSON结果、Python语法和本地文档链接；第二条只读取原记录生成中文图表，均不导入控制器、不启动PX4、不修改已有仿真数据。绘图需要NumPy、Matplotlib，以及微软雅黑或Noto Sans CJK SC等中文字体。
+第一条核对文件SHA256、CSV/JSON结果、Python语法和本地文档链接，不写入实验文件。第二条读取原记录重新生成中文图表，**会重写对应的派生图片、中文表和汇总文件**，不修改原始逐次记录。两条命令均不导入控制器、不启动PX4。绘图需要NumPy、Matplotlib，以及微软雅黑或Noto Sans CJK SC等中文字体。
 
 ## 结果和代码怎样对应
 

@@ -36,7 +36,7 @@
 - 正式共享执行入口：[run_quadrotor.py](code/shared_execution_20261030/run_quadrotor.py)。
 - 密集场景入口：[run_existing_cases.py](code/shared_execution_20261030/run_existing_cases.py)。
 
-使用独立环境安装`code/constraints.txt`中的约束和RotorPy。上游参考版本为`40b09697a6a1596d404a67f459941d46a39eedd3`。显式手动运行示例：
+使用独立环境安装`code/constraints.txt`中的约束和RotorPy。上游参考版本为`40b09697a6a1596d404a67f459941d46a39eedd3`。以下示例在`3d-ra-dpcbf/rotorpy`目录执行：
 
 ```bash
 python code/shared_execution_20261030/run_quadrotor.py --method ra --scene code/four_obstacle_scene.npz
