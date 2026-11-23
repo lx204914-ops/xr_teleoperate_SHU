@@ -225,9 +225,14 @@ d_j^\top e_j=0,\quad \|d_j\|=1,\qquad \chi_j=d_j^\top(v-v_{o,j})=-d_j^\top z_j.
 
 本表采用初版D82口径；4障碍另属较早D65独立批次，不计入36次。**执行检查通过不代表严格20 ms硬实时保证，原批次含24 ms收令间隔。**
 
-下面保留一段初版十障碍RA代表片；四种场景、四种方法的原图仍在专页按方法全宽展示。
+下表直接展示 4 种障碍数量 × 4 种方法的原始素材。50 和 100 障碍的 C3BF 原件为早停截图。
 
-![初版十障碍RA代表片](px4-gazebo/media/first36/compare_ten_ra_20261103_223644_14a3.gif)
+| 障碍数量 | RA-DPCBF | Park 适配 | MA-CBF-VO | C3BF |
+|:---:|:---:|:---:|:---:|:---:|
+| **4** | ![4 障碍 RA-DPCBF 原始动图](px4-gazebo/media/four_obstacles/ra.gif) | ![4 障碍 Park适配 原始动图](px4-gazebo/media/four_obstacles/park.gif) | ![4 障碍 MA-CBF-VO 原始动图](px4-gazebo/media/four_obstacles/ma_cbf_vo.gif) | ![4 障碍 C3BF 原始动图](px4-gazebo/media/four_obstacles/c3bf.gif) |
+| **10** | ![10 障碍 RA-DPCBF 原始动图](px4-gazebo/media/first36/compare_ten_ra_20261103_223644_14a3.gif) | ![10 障碍 Park适配 原始动图](px4-gazebo/media/first36/compare_ten_park_20261103_223304_d095.gif) | ![10 障碍 MA-CBF-VO 原始动图](px4-gazebo/media/first36/compare_ten_ma_cbf_vo_20261103_222606_4408.gif) | ![10 障碍 C3BF 原始动图](px4-gazebo/media/first36/compare_ten_c3bf_20261103_222828_0a66.gif) |
+| **50** | ![50 障碍 RA-DPCBF 原始动图](px4-gazebo/media/first36/compare_fifty_ra_20261103_225021_3101.gif) | ![50 障碍 Park适配 原始动图](px4-gazebo/media/first36/compare_fifty_park_20261103_224641_ccf8.gif) | ![50 障碍 MA-CBF-VO 原始动图](px4-gazebo/media/first36/compare_fifty_ma_cbf_vo_20261103_224017_0d0f.gif) | ![50 障碍 C3BF 早停截图](px4-gazebo/media/first36/compare_fifty_c3bf_20261103_224358_3d96.png)<br>早停截图 |
+| **100** | ![100 障碍 RA-DPCBF 原始动图](px4-gazebo/media/first36/compare_hundred_ra_20261103_220651_6fff.gif) | ![100 障碍 Park适配 原始动图](px4-gazebo/media/first36/compare_hundred_park_20261103_230254_3539.gif) | ![100 障碍 MA-CBF-VO 原始动图](px4-gazebo/media/first36/compare_hundred_ma_cbf_vo_20261103_225418_571c.gif) | ![100 障碍 C3BF 早停截图](px4-gazebo/media/first36/compare_hundred_c3bf_20261103_225925_cb71.png)<br>早停截图 |
 
 [4障碍四方法](px4-gazebo/精选16格对比.md#4障碍物四方法大图) · [10障碍四方法](px4-gazebo/精选16格对比.md#10障碍物四方法大图) · [50障碍四方法](px4-gazebo/精选16格对比.md#50障碍物四方法大图) · [100障碍四方法](px4-gazebo/精选16格对比.md#100障碍物四方法大图)
 
