@@ -1,0 +1,55 @@
+{
+  "stage": 52,
+  "created": "2026-10-28T14:48:44.943808+00:00",
+  "scenario": "Same original first8obstacles;4tetrahedral vertices form a smoothly contracting three-dimensional pocket",
+  "purpose": "Outcome-directed extreme mechanism case search, prepared while frozen stage51 continues; not a random statistical study",
+  "methods": [
+    "full",
+    "no_detour",
+    "no_reselection",
+    "no_progress_guard",
+    "fixed_radius",
+    "no_transverse",
+    "fixed_strength"
+  ],
+  "candidate_budget": 8,
+  "seeds": [
+    8201,
+    8202,
+    8203,
+    8204,
+    8205,
+    8206,
+    8207,
+    8208
+  ],
+  "controller": "All copied stage51 control/evaluation code and method parameters byte-identical",
+  "horizon_s": 40.0,
+  "arrival_radius_m": 0.25,
+  "control_dt": 0.0025,
+  "monitor_dt": 0.0005,
+  "screening": "full then fixed_radius; only if full goals and fixed_radius has genuine failure run other5. Unrun is not failure. Fill best2seven-group cases if target not found.",
+  "accepted_failures": [
+    "timeout",
+    "qp_infeasible",
+    "sampling_set_infeasible",
+    "collision"
+  ],
+  "excluded": [
+    "initial_rejected",
+    "numerical_failure",
+    "generation_rejected",
+    "not_evaluated"
+  ],
+  "validation": "Freeze first target,5perturbations seeds8300..8304,close_start±.05s/initial_L±.01m/rotation_phase±.02rad; no retuning,invalid trials retained.",
+  "generation": "All motions preset from time; tetra radius usesC2quintic stages integrated with frozen piecewise-linear acceleration backend; no online method/robot dependence",
+  "acceleration_bound": 0.8,
+  "jerk_bound": 1.1,
+  "nonoverlapping_bodies": true,
+  "bounded_workspace": true,
+  "offline_fixed_baseline_anchor_disclosed": true,
+  "prepared_only_until_stage51_finishes": true,
+  "F_available": false,
+  "F_archived": false,
+  "plot_policy": "Only necessary true figure/GIF if a qualifying case exists; preserve all candidate outcomes"
+}

@@ -1,0 +1,6 @@
+{
+  "selected_core": 15,
+  "measurements": [],
+  "scope": "Preserve original core index on native 9950X; old-host benchmark NOT reused as a new measurement; actual flight timings pending",
+  "native_siblings": "15,31"
+}

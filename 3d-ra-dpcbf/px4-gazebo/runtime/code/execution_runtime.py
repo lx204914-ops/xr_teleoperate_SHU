@@ -31,7 +31,8 @@ def request_scheduling(out):
  out=Path(out);root=out.parents[1]
  request=dict(pid=os.getpid(),uid=os.getuid(),session=out.name,script=str(root/'code/run_continuous.py'),physics_not_started=False,mission_not_started=True)
  (out/'control_scheduling_request.json').write_text(json.dumps(request,indent=2))
- selected=int(json.loads((root/'qa/control_cpu_benchmark.json').read_text())['selected_core'])
+ from portable_inputs import control_core
+ selected=control_core(root)
  assert selected in os.sched_getaffinity(0),'Selected CPU is not available'
  from affinity_isolation77 import isolate
  isolate(out,original_allowed=set(os.sched_getaffinity(0)))

@@ -1,0 +1,58 @@
+{
+  "configuration.py": {
+    "source": "archive://continuation/52_tetra_pinch_search_20261028\\frozen_improved\\current_method_conditional\\configuration.py",
+    "sha256": "d7abf0ddd00785fadc46e489b58948639c27ddf67fa9a60952e888afa346c03d"
+  },
+  "method_config.json": {
+    "source": "archive://continuation/52_tetra_pinch_search_20261028\\frozen_improved\\current_method_conditional\\method_config.json",
+    "sha256": "9fb4d590a4f681e0f6310f86a2981facc8c3127d9d79005031d279717ca40ad4"
+  },
+  "nominal_mpc.py": {
+    "source": "archive://continuation/52_tetra_pinch_search_20261028\\frozen_improved\\current_method_conditional\\nominal_mpc.py",
+    "sha256": "7cc67f93a3b44262ab43adebebb756beafd81fe653791885265e37571a31463a"
+  },
+  "sampled_safety.py": {
+    "source": "archive://continuation/52_tetra_pinch_search_20261028\\frozen_improved\\current_method_conditional\\sampled_safety.py",
+    "sha256": "57aa48454a5d64fee80ec9fd3ff6f057d02b92059ed0eb84583de9a0be5b40a1"
+  },
+  "safety_filter.py": {
+    "source": "archive://continuation/52_tetra_pinch_search_20261028\\frozen_improved\\current_method_conditional\\safety_filter.py",
+    "sha256": "e8a77b6573344d3866e1629fd2abfcab14c6f0af67940a090d52fc5517505498"
+  },
+  "conditional_gate.py": {
+    "source": "archive://continuation/52_tetra_pinch_search_20261028\\frozen_improved\\current_method_conditional\\conditional_gate.py",
+    "sha256": "20fe5a5ce092f13ab38426074056e6e0d9e385d6b26e060590a44aff071d7a80"
+  },
+  "goal_aware_detour.py": {
+    "source": "archive://continuation/52_tetra_pinch_search_20261028\\frozen_improved\\current_method_conditional\\goal_aware_detour.py",
+    "sha256": "5500f97b5ea2b42d50db034a9358f86654d725569c24dc7e7ce51a14743a81ee"
+  },
+  "detour.py": {
+    "source": "archive://continuation/52_tetra_pinch_search_20261028\\frozen_improved\\current_method_conditional\\detour.py",
+    "sha256": "a2986ceb157d418ddb2708bf632865ea2d054bf08cb6d11ef2787bafada8365b"
+  },
+  "dynamic_study/kernel.py": {
+    "source": "archive://continuation/52_tetra_pinch_search_20261028\\frozen_improved\\current_method_conditional\\dynamic_study\\kernel.py",
+    "sha256": "66f3599c9d529434336f0517366bff8b1d882558bf0ecaf83a73e9bc14386ab5"
+  },
+  "ra_dpcbf/__init__.py": {
+    "source": "archive://continuation/52_tetra_pinch_search_20261028\\frozen_improved\\current_method_conditional\\ra_dpcbf\\__init__.py",
+    "sha256": "39dfc5a6dfaa54fcb50162e730b75a7b3670bc87cdfd7d49cfcc31e5df468c40"
+  },
+  "ra_dpcbf/core.py": {
+    "source": "archive://continuation/52_tetra_pinch_search_20261028\\frozen_improved\\current_method_conditional\\ra_dpcbf\\core.py",
+    "sha256": "62bdcff463dd6b0b959b23a8d6bafbe220ae6e45040c34c86986ba1181f971eb"
+  },
+  "ra_dpcbf/certificates.py": {
+    "source": "archive://continuation/52_tetra_pinch_search_20261028\\frozen_improved\\current_method_conditional\\ra_dpcbf\\certificates.py",
+    "sha256": "62cd5dc9c8112e255a1a84436aa4a934e4b9eef1a07eba2be7175cc10e16d44e"
+  },
+  "stable_progress.py": {
+    "source": "archive://continuation/52_tetra_pinch_search_20261028\\code\\stable_progress.py",
+    "sha256": "79c177395cd4cf42e0955f5d5df9e0f0fcc3efee515fe019d9d0a01bd05a646e"
+  },
+  "sparse_projection.py": {
+    "source": "archive://continuation/52_tetra_pinch_search_20261028\\frozen_original\\code\\sparse_projection.py",
+    "sha256": "3b2f79e965e61abb1117d0f39bd42ad412966faf1b15897a1bad5b79c5f087c6"
+  }
+}

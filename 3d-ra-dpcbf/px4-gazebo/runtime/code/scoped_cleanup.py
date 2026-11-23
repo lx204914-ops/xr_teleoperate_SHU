@@ -3,7 +3,7 @@ from pathlib import Path
 import os,signal,time,json
 def stop_owned_group(group,out):
  out=Path(out);s=json.loads((out/'summary.json').read_text());assert s.get('post_terminal_world_paused') or (s.get('mission_sim_start') is None and s.get('failure'))
- expected='cbf_compare_'+out.name;uid=out.stat().st_uid;actions=[];project=out.parents[2]/'PX4-Autopilot'
+ expected='cbf_compare_'+out.name;uid=out.stat().st_uid;actions=[];project=Path(os.environ.get('CBF_PX4_ROOT',str(Path.home()/'cbf_px4/PX4-Autopilot')))
  def members():
   result=[]
   for path in Path('/proc').iterdir():

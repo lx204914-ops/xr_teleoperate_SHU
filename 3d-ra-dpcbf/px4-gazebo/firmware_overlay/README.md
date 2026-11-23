@@ -2,7 +2,7 @@
 
 这里保存D83父版本归档中的六份执行适配源码，涵盖加速度跟踪、状态反馈与回执记录，源文件保留PX4版权声明。原上游源码核验提交为`6ea3539157ca358c70a515878b77077af7d4611d`。
 
-归档中的目标二进制SHA256为`eeb37b2708909381f88bf56de1c00d69dac7eb0dc8640074cee6c357a83cf67a`，已与D89主100次使用的归档二进制一致核对。本次不发布二进制，不在Windows上重新编译PX4。
+归档中的目标二进制SHA256为`eeb37b2708909381f88bf56de1c00d69dac7eb0dc8640074cee6c357a83cf67a`，已与D89主100次使用的归档二进制一致核对。另补[原SITL固件压缩件](../artifacts/README.md)，与初版36份回执逐SHA对应；没有在Windows上重新编译或执行PX4。
 
 **六个文件的`candidate_`前缀不能代替最终构建步骤。** 原D83构建脚本在使用`candidate_mc_att_control_main.cpp`时，移除附加行`rates_sp += Dcmf(q).transpose() * _accel_ref_omega_world;`，保留正常姿态误差反馈；其余文件按对应模块映射构建，并在结束后恢复上游源码。
 

@@ -1,0 +1,54 @@
+{
+  "source": "/home/afeng/cbf_px4/PX4-Autopilot/Tools/simulation/gz/models/x500_base/model.sdf",
+  "source_sha256": "d97e53de8c50f167b0b3a4f86dc21413236387f7b72cb817549362b63534e83c",
+  "maximum_primitive_bound_m": 0.39315465072904976,
+  "validation_body_radius_m": 0.4,
+  "method": "triangle inequality of link offset, collision offset and enclosing primitive sphere; valid for any rotor angle",
+  "parts": [
+    {
+      "link": "base_link",
+      "collision": "base_link_collision_0",
+      "rotation_independent_radius_bound_m": 0.25824689052802224
+    },
+    {
+      "link": "base_link",
+      "collision": "base_link_collision_1",
+      "rotation_independent_radius_bound_m": 0.26280164299383735
+    },
+    {
+      "link": "base_link",
+      "collision": "base_link_collision_2",
+      "rotation_independent_radius_bound_m": 0.26280164299383735
+    },
+    {
+      "link": "base_link",
+      "collision": "base_link_collision_3",
+      "rotation_independent_radius_bound_m": 0.3815824589969832
+    },
+    {
+      "link": "base_link",
+      "collision": "base_link_collision_4",
+      "rotation_independent_radius_bound_m": 0.3815824589969832
+    },
+    {
+      "link": "rotor_0",
+      "collision": "rotor_0_collision",
+      "rotation_independent_radius_bound_m": 0.39315465072904976
+    },
+    {
+      "link": "rotor_1",
+      "collision": "rotor_1_collision",
+      "rotation_independent_radius_bound_m": 0.39315465072904976
+    },
+    {
+      "link": "rotor_2",
+      "collision": "rotor_2_collision",
+      "rotation_independent_radius_bound_m": 0.39315465072904976
+    },
+    {
+      "link": "rotor_3",
+      "collision": "rotor_3_collision",
+      "rotation_independent_radius_bound_m": 0.39315465072904976
+    }
+  ]
+}

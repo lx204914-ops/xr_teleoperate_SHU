@@ -25,11 +25,9 @@ class Platform(OriginalPlatform):
     def __enter__(self):
         self.snapshot_parameters()
         try:return super().__enter__()
-        except Exception:
-            if self.proc is not None:
-                try:os.killpg(self.proc.pid,signal.SIGTERM);self.proc.wait(timeout=10)
-                except ProcessLookupError:pass
-            self.restore_parameters();raise
+        except BaseException:
+            if self.proc is not None:self.restore_parameters()
+            raise
     def __exit__(self,*exc):
         try:return super().__exit__(*exc)
         finally:self.restore_parameters()

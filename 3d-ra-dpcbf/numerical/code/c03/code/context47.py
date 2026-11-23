@@ -16,4 +16,4 @@ def dump(p,x):
  p=Path(p);p.parent.mkdir(parents=True,exist_ok=True);q=p.with_suffix(p.suffix+f'.tmp.{os.getpid()}')
  q.write_text(json.dumps(x,ensure_ascii=False,indent=2,allow_nan=False),encoding='utf8');q.replace(p)
 def verify():
- for p,h in json.loads((ROOT/'inputs/source_manifest.json').read_text('utf8')).items():assert sha(p)==h,p
+ for p,h in json.loads((ROOT/'inputs/package_sources.json').read_text('utf8')).items():assert sha(ROOT/p)==h,p

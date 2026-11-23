@@ -112,7 +112,7 @@ def baseline(scene,name,dest,save_history=True):
             parameters=par,obstacle_tape=tape,tape_dt=td,motion_mode=1,workspace=scene['workspace'],
             initial=scene['start'],goal=goal,waypoints=scene['waypoints'],branches=np.array(idslog),
             controller_timing=np.array(times),branch_qp_calls=np.array(costlog),sampling_margins=np.array(marginlog),execution_residuals=np.array(logs)[:,:,12]-np.array(marginlog))
-    row=dict(method_label=LABELS[name],scene='corridor_crossing',variant=name,termination=status,reached_goal=status=='goal',
+    row=dict(method_label=LABELS[name],scene=scene.get('scene_id',Path(str(scene.get('source','scene'))).stem),variant=name,termination=status,reached_goal=status=='goal',
         duration_s=float(hist[-1,0]),final_error_m=float(hist[-1,13]),collision=bool(minima[0]<=0),
         qp_failures=int(status in ('qp_infeasible','branch_set_infeasible')),numerical_failures=int(status=='qp_numerical_failure'),min_body_clearance_m=float(minima[0]),
         min_h=float(minima[1]),min_intersample_CBF_residual=float(minima[2]) if minima[2]<1e19 else None,

@@ -4,16 +4,116 @@ import os,subprocess,time,signal,gzip,shutil,json,hashlib
 ROOT=Path(__file__).resolve().parents[1]
 PX4=Path(os.environ.get('CBF_PX4_ROOT',str(Path.home()/'cbf_px4/PX4-Autopilot')))
 PY=os.environ.get('CBF_PYTHON',str(Path.home()/'cbf_px4/.venv/bin/python'))
-FIRMWARE=ROOT/'build/feedback_receipt_bin/px4'
+FIRMWARE=Path(os.environ.get('CBF_PX4_FIRMWARE',str(ROOT/'build/feedback_receipt_bin/px4')))
 class Platform:
     def __init__(self,out,gui=False,motion=None,tape_dt=None,initial_offset=None):
-        self.out=Path(out);self.gui=gui;self.proc=None;self.motion=motion;self.tape_dt=tape_dt;self.initial_offset=initial_offset
+        self.out=Path(out).expanduser().resolve();self.gui=gui;self.proc=None;self.motion=motion;self.tape_dt=tape_dt;self.initial_offset=initial_offset
+        self.log=None;self._link=None;self._link_old=None;self._installed_link=None;self._logger_path=None;self._logger_snapshot=None
+    def _preflight(self):
+        if self.out.exists():raise FileExistsError('Existing output preserved: '+str(self.out))
+        required=[FIRMWARE,Path(PY),PX4/'Tools/simulation/gz/worlds/default.sdf',PX4/'src/modules/simulation/gz_bridge/server.config',ROOT/'build/libra_obstacle_motion.so',ROOT/'build/libperiodic_publish75.so']
+        for p in required:
+            if not p.is_file():raise FileNotFoundError('Required platform input missing: '+str(p))
+        if os.name=='posix' and not os.access(FIRMWARE,os.X_OK):raise PermissionError('Firmware is not executable: '+str(FIRMWARE))
+        for command in ('pgrep','gz','git'):
+            if shutil.which(command) is None:raise FileNotFoundError('Required command missing: '+command)
+        import xml.etree.ElementTree as ET
+        ET.parse(required[2]);ET.parse(required[3])
+        self._link=PX4/'Tools/simulation/gz/worlds/ra_lab.sdf'
+        if self._link.is_symlink():
+            target=self._link.resolve()
+            if target!=(ROOT/'worlds/ra_lab.sdf').resolve() and not target.is_relative_to((ROOT/'runs').resolve()):
+                raise RuntimeError('Unowned world symlink preserved: '+str(self._link))
+            self._link_old=str(self._link.readlink())
+        elif self._link.exists():raise RuntimeError('Unowned world path preserved: '+str(self._link))
+        logger=PX4/'build/px4_sitl_default/rootfs/etc/logging/logger_topics.txt'
+        if logger.is_symlink():raise RuntimeError('Logger symlink preserved: '+str(logger))
+        self._logger_path=logger
+        self._logger_snapshot=logger.read_bytes() if logger.exists() else None
+        self._logger_mode=(logger.stat().st_mode & 0o777) if logger.exists() else 0o644
+
+    def _atomic_logger_write(self,data):
+        import tempfile
+        p=self._logger_path;p.parent.mkdir(parents=True,exist_ok=True)
+        fd,name=tempfile.mkstemp(prefix='.cbf-logger-',dir=p.parent)
+        try:
+            with os.fdopen(fd,'wb') as f:f.write(data)
+            os.chmod(name,self._logger_mode)
+            os.replace(name,p)
+        finally:Path(name).unlink(missing_ok=True)
+
+    def _install_world_link(self,world):
+        if self._link.is_symlink():
+            if str(self._link.readlink())!=self._link_old:raise RuntimeError('World link changed during preparation; preserved')
+            self._link.unlink()
+        elif self._link.exists():raise RuntimeError('World path changed during preparation; preserved')
+        self._installed_link=str(world)
+        self._link.symlink_to(world)
+
+    def _stop_started_process(self):
+        if self.proc is None:return
+        # Popen below always uses start_new_session=True: this is our private group.
+        try:os.killpg(self.proc.pid,signal.SIGTERM)
+        except ProcessLookupError:pass
+        try:self.proc.wait(timeout=3)
+        except subprocess.TimeoutExpired:
+            try:os.killpg(self.proc.pid,signal.SIGKILL)
+            except ProcessLookupError:pass
+            self.proc.wait(timeout=5)
+        # A launcher may exit before its Gazebo child. Reap only the same group.
+        try:
+            os.killpg(self.proc.pid,0)
+            os.killpg(self.proc.pid,signal.SIGKILL)
+        except ProcessLookupError:pass
+
+    def _restore_local_state(self):
+        errors=[]
+        try:
+            if self.log is not None and not self.log.closed:self.log.close()
+        except OSError as err:errors.append(repr(err))
+        p=self._logger_path
+        try:
+            if p is not None:
+                data=p.read_bytes() if p.exists() else None
+                expected=getattr(self,'logger_bytes',None)
+                if data==self._logger_snapshot:pass
+                elif expected is not None and data==expected:
+                    if self._logger_snapshot is None:p.unlink()
+                    else:self._atomic_logger_write(self._logger_snapshot)
+                else:errors.append('Logger changed by another writer; preserved')
+        except OSError as err:errors.append(repr(err))
+        try:
+            if self._link is not None and self._installed_link is not None:
+                if self._link.is_symlink() and str(self._link.readlink())==self._installed_link:self._link.unlink()
+                elif self._link.exists() or self._link.is_symlink():
+                    errors.append('World link changed by another writer; preserved')
+                if not self._link.exists() and not self._link.is_symlink() and self._link_old is not None:self._link.symlink_to(self._link_old)
+        except OSError as err:errors.append(repr(err))
+        if errors:raise RuntimeError('Platform restoration incomplete: '+ '; '.join(errors))
+
     def __enter__(self):
+        self._preflight()
+        try:return self._start()
+        except BaseException as original:
+            try:
+                try:self._stop_started_process()
+                finally:self._restore_local_state()
+            except Exception as cleanup:
+                if hasattr(original,'add_note'):original.add_note(str(cleanup))
+            raise
+
+    def __exit__(self,*exc):
+        try:return self._finish(*exc)
+        finally:
+            try:self._stop_started_process()
+            finally:self._restore_local_state()
+
+    def _start(self):
         if subprocess.run(['pgrep','-x','px4'],capture_output=True).returncode==0:raise RuntimeError('Existing PX4 preserved')
         self.out.mkdir(parents=True,exist_ok=False)
         if (ROOT/'stage_lock.json').exists():(self.out/'stage_lock_at_run.json').write_bytes((ROOT/'stage_lock.json').read_bytes())
         if (ROOT/'execution_contract.json').exists():(self.out/'execution_contract.json').write_bytes((ROOT/'execution_contract.json').read_bytes())
-        world=ROOT/'worlds/ra_lab.sdf';world.parent.mkdir(exist_ok=True)
+        world=self.out/'world.sdf'
         src=(PX4/'Tools/simulation/gz/worlds/default.sdf').read_text(encoding='utf-8-sig').replace('<world name="default">','<world name="ra_lab">')
         # Additional publisher only; official X500 dynamics/actuators/sensors unchanged.
         model='''<include><uri>model://x500</uri><name>x500_0</name><pose>0 0 0.25 0 0 0</pose>
@@ -50,18 +150,13 @@ class Platform:
         if not self.gui:env['HEADLESS']='1'
         else:env.pop('HEADLESS',None)
         # gz_env.sh expands this build variable; use a process-local symlinked world path.
-        link=PX4/'Tools/simulation/gz/worlds/ra_lab.sdf'
-        if link.is_symlink():
-            previous=str(link.readlink())
-            if 'ra_closed_loop_20261030' not in previous and 'continuation_20261101' not in previous and 'live_deployment_20261101' not in previous and 'shared_visuals_20261101' not in previous and 'continuous_execution_20261101' not in previous and 'dense_validation_20261101' not in previous and 'dense_execution_fix_20261102' not in previous and 'dense_tracking_20261102' not in previous and 'first_arrival_comparison_20261102' not in previous and 'paper_execution_evidence_20261102' not in previous and 'tight_bound_candidate_qp_20261102' not in previous and 'directional_execution_20261102' not in previous and 'bounded_runtime_20261102' not in previous and 'tracking_fair_comparison_20261102' not in previous and 'aligned_state_comparison_20261102' not in previous and 'verified_execution_20261102' not in previous and 'verified_tracking_20261103' not in previous and 'paper_comparison_20261103' not in previous and 'execution_pipeline_20261103' not in previous and 'finite_execution_20261103' not in previous and 'candidate_runtime_20261103' not in previous and 'git_execution_native_20261103' not in previous and 'git_execution_feedback_20261103' not in previous and 'git_execution_attitude_20261103' not in previous and 'git_execution_auditfix_20261103' not in previous and 'git_execution_timingfix_20261104' not in previous and 'git_scene_variation_20261105' not in previous:raise RuntimeError('Unowned world symlink preserved')
-            link.unlink()
-        if link.exists() and not link.is_symlink():raise RuntimeError('Unowned world path preserved')
-        if not link.exists():link.symlink_to(world)
+        self._install_world_link(world)
         self.logger_config=PX4/'build/px4_sitl_default/rootfs/etc/logging/logger_topics.txt'
         self.logger_old=self.logger_config.read_bytes() if self.logger_config.exists() else None
         topics=['trajectory_setpoint 0','vehicle_local_position_groundtruth 4','vehicle_attitude_groundtruth 4','vehicle_local_position 10','vehicle_local_position_setpoint 4','actuator_motors 4','vehicle_acceleration 4','vehicle_attitude 4','vehicle_status 20','vehicle_land_detected 20','vehicle_command_ack 0','timesync_status 20','logger_status 100','vehicle_angular_velocity 4','vehicle_rates_setpoint 4','vehicle_attitude_setpoint 4','offboard_control_mode 0','estimator_status_flags 20','vehicle_global_position 100']
         self.logger_bytes=bytes(('\n'.join(topics)+'\n'),'ascii')
-        self.logger_config.parent.mkdir(parents=True,exist_ok=True);self.logger_config.write_bytes(self.logger_bytes)
+        if self.logger_config.is_symlink() or self.logger_old!=self._logger_snapshot:raise RuntimeError('Logger changed during preparation; preserved')
+        self._atomic_logger_write(self.logger_bytes)
         (self.out/'logger_topics.txt').write_bytes(self.logger_bytes)
         self.log=(self.out/'px4_gazebo.log').open('wb');self.started=time.time()
         env['PX4_SIM_MODEL']='gz_x500'
@@ -70,7 +165,7 @@ class Platform:
         time.sleep(12)
         if self.proc.poll() is not None:raise RuntimeError('PX4 exited at startup: '+str(self.out))
         return self
-    def __exit__(self,*exc):
+    def _finish(self,*exc):
         if self.proc is not None:
             # The mission is already physically paused; drain the actual logger
             # without advancing Gazebo, sending control or changing arrival time.
@@ -97,7 +192,7 @@ class Platform:
         self.log.close()
         if self.logger_config.exists() and self.logger_config.read_bytes()==self.logger_bytes:
             if self.logger_old is None:self.logger_config.unlink()
-            else:self.logger_config.write_bytes(self.logger_old)
+            else:self._atomic_logger_write(self.logger_old)
         ulgs=[p for p in (PX4/'build/px4_sitl_default/rootfs/log').rglob('*.ulg') if p.stat().st_mtime>=self.started-2]
         if ulgs:
             p=max(ulgs,key=lambda a:a.stat().st_mtime)

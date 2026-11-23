@@ -1,0 +1,9 @@
+{
+  "shared_execution_slew": false,
+  "response_test_passed": false,
+  "tracking_budget": 0.5,
+  "control_period": 0.02,
+  "execution_time_scale": 0.1,
+  "execution_interface": "acceleration",
+  "scope": "Original physical input domain, no additional hard command constraints. Same causal raw-FF plus IMU executor for every method."
+}

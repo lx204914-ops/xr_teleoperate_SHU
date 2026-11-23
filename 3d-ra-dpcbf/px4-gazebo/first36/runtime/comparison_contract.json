@@ -1,0 +1,44 @@
+{
+  "cases": {
+    "ten": {
+      "duration": 32,
+      "obstacles": 10,
+      "initialize": false,
+      "scene": "archive://cbf_px4/git_execution_attitude_20261103/scenes/ten_faster_same_layout.npz",
+      "sha256": "40f6e6a1776df00adb0c0d43a1f8e5ee454f06dab56fa90f8bafd4d0c811b4d9",
+      "source": "archive://legacy_cbf_px4/continuous_execution_20261101/scenes/ten_faster_same_layout.npz"
+    },
+    "fifty": {
+      "duration": 24,
+      "obstacles": 50,
+      "initialize": false,
+      "scene": "archive://cbf_px4/git_execution_attitude_20261103/scenes/smooth_N050_S2000.npz",
+      "sha256": "00ba192a5a4f06fb62adc3fe745a527e86aac041c8e0949ef773399d5fdc425a",
+      "source": "archive://legacy_cbf_px4/dense_tracking_20261102/scenes/smooth_N050_S2000.npz"
+    },
+    "hundred": {
+      "duration": 40,
+      "obstacles": 100,
+      "initialize": false,
+      "scene": "archive://cbf_px4/git_execution_attitude_20261103/scenes/smooth_N100_S2000_observe40.npz",
+      "sha256": "c409398d86150f2db60b32e2ec31331be86b5503966c0bad881aa9c5ce0ee4dc",
+      "source": "archive://legacy_cbf_px4/dense_tracking_20261102/scenes/smooth_N100_S2000_observe40.npz"
+    }
+  },
+  "methods": [
+    "ma_cbf_vo",
+    "c3bf",
+    "park",
+    "ra"
+  ],
+  "control_dt_s": 0.02,
+  "tracking_budget_mps2": 0.5,
+  "nominal_cruise_mps": 1.5,
+  "physical_input_component_limit_mps2": 1.5,
+  "nominal_input_component_limit_mps2": 0.8,
+  "arrival_radius_m": 0.25,
+  "arrival_source": "First Gazebo physical-truth sample in target ball",
+  "terminal_policy": "Freeze virtual world and terminate SITL immediately upon first entry; no settling or landing",
+  "control_algorithm_unchanged": true,
+  "old_results_retained": true
+}

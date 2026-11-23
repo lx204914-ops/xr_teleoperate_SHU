@@ -18,7 +18,9 @@ def isolate(out,original_allowed=None):
     assert partition.startswith('cbf_compare_'+out.name), 'Refuse unknown process scope'
     state=out/'cpu_isolation77.json';prior=json.loads(state.read_text()) if state.exists() else {}
     allowed=set(original_allowed or prior.get('original_allowed',[]));assert allowed
-    root=out.parents[1];core=int(json.loads((root/'qa/control_cpu_benchmark.json').read_text())['selected_core'])
+    root=out.parents[1]
+    from portable_inputs import control_core
+    core=control_core(root,allowed=allowed)
     sibling=parse_mask(Path(f'/sys/devices/system/cpu/cpu{core}/topology/thread_siblings_list').read_text())
     others=allowed-sibling;assert others and core in allowed
     changes=[];skipped_unreadable=[];uid=os.getuid();me=os.getpid()

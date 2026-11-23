@@ -1,0 +1,14 @@
+{
+  "k_vo": 10.0,
+  "k_c": 10.0,
+  "ku": 1.0,
+  "kvo": 1000.0,
+  "a_br": 1.2,
+  "ttc_radius": "common physical safety R0",
+  "slack": "nonnegative, VO only",
+  "input": "common box +/-2",
+  "source": "https://arxiv.org/html/2409.10117v1",
+  "adaptation": "3D double integrator; measured obstacle acceleration and conservative relative braking; common native MPC and increment penalty",
+  "hard_sample_hold": "current-state interval derivative bound",
+  "native_proposed_method_changed": false
+}

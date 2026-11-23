@@ -21,7 +21,7 @@ python reproducibility/render_results.py
 | PyBullet | `pybullet/code` | 历史PD/HOCBF/软RA扩展，不是最新版核心；上游工作树指针失效，精确上游提交仍缺核 |
 | RotorPy六次 | `rotorpy/code` | 接受的共享执行实现；原场景按入口预期SHA核验 |
 | PX4主100次 | `px4-gazebo/runtime` | 原D89运行链及D83父版本绑定；不使用后来未接受候选替换 |
-| 首页初版36次 | 原D82运行目录已在归档找回，[90项源码配置索引](../px4-gazebo/data/初版36次源码配置索引.csv) | 公开原结果与代表片；本仓库尚未提供该批完整运行包，不由D89代码替代 |
+| 首页初版36次 | [D82独立运行包](../px4-gazebo/first36/README.md)，原源码、三份场景、原固件绑定 | 路径/启动适配和静态核验；未重跑初版36次，不由D89代码替代 |
 
 `来源与校验清单.csv`保存相对归档标识、来源SHA256与发布SHA256；不公开个人盘符、登录配置或聊天记录。`发布文件校验.csv`覆盖交付文件。源码保持原算法；若为了可移植性调整路径，由`路径适配清单.csv`逐项列明。JSON/NPZ/机器CSV中的程序字段和方法标识保留，中文展示表单独提供。历史配置中的个人主目录替换为归档标识，冻结清单仅作为历史校验依据，不冒充当前文件路径。
 
@@ -31,7 +31,15 @@ python reproducibility/render_results.py
 
 原生成函数保留`max_attempts=1000`默认值；正式补齐任务在外层调用时明确传入10000，不修改内部放置次数、种子或筛选。`numerical/generate_formal_scene.py`展示这一绑定，并核对保存的场景tape与接受序号；必须显式请求生成，默认不运行。
 
-便携入口位于`numerical/run_example.py`，默认不启动仿真。现已发现MA分支的配置根目录绑定缺陷；[MA原配置](../numerical/data/原始配置/ma_settings.json)已找回并保留原字节，但按本次“不改代码”的范围，入口未修正、未完成运行验证。暂不把它作为四方法均已可运行的入口推荐。C03的历史目录依赖也未随现有源码包补齐，详见[复现状态](版本与复现状态.md)。完整6000次的调度恢复程序不随本次发布启动。
+便携入口位于`numerical/run_example.py`，默认不启动仿真。MA固定配置路径已修正，四方法统一使用绝对输出根目录并拒绝覆盖，结果标签来自实际场景。[单例路径与命令](../numerical/运行入口.md)。C03补回原绑定、QP接口及场景，提供[七组手动单例入口](../numerical/code/c03/README.md)。本轮只做真实导入、只检查模式和模拟后端测试，没有重新计算科学结果。
+
+基础设施测试（临时目录、假后端和假进程，不运行仿真）：
+
+```bash
+python reproducibility/test_portable_entries.py
+```
+
+8项测试覆盖相对输出绑定、已有结果保护、两次连续启动失败清理、缺失场景/初始化、CPU再次读取。本机Windows没有创建系统软链接的权限，测试对临时软链接操作使用模型，日志/世界文件字节使用真实临时文件；不能将此写成Linux SITL实际启动测试。
 
 ## RotorPy
 
@@ -41,11 +49,11 @@ python reproducibility/render_results.py
 
 运行链包含PX4状态反馈、Gazebo物理状态观察、执行预留、原生显示及20 ms控制周期。原机Gazebo为8.14.0，对应Python接口`gz.transport13`/`gz.msgs10`；还需要MAVLink、C++插件和独立PX4 SITL构建。
 
-归档使用固件SHA256：`eeb37b2708909381f88bf56de1c00d69dac7eb0dc8640074cee6c357a83cf67a`。它已与主100次所在归档中的二进制核对。仓库只提供归档执行适配源码，不上传二进制；本轮没有从这些源码重新构建并复现该二进制SHA，因此不能声称编译同源性已经重新通过。原始`candidate_`前缀仅是归档文件名，不代表后来D91—D93候选。
+归档使用固件SHA256：`eeb37b2708909381f88bf56de1c00d69dac7eb0dc8640074cee6c357a83cf67a`。它已与主100次所在归档中的二进制核对。现另提供[原固件压缩件与回执绑定](../px4-gazebo/artifacts/README.md)，两个运行包只共用这一份；本轮没有从源码重新构建该二进制，因此不能声称编译同源性已经重新通过。原始`candidate_`前缀仅是归档文件名，不代表后来D91—D93候选。
 
 本地上游源码核验记录给出的PX4提交为`6ea3539157ca358c70a515878b77077af7d4611d`。固件适配还需要按原构建步骤处理附加角速度前馈，见[固件来源说明](../px4-gazebo/firmware_overlay/README.md)，不能直接把六份候选命名文件全部覆盖后声称等于接受版本。
 
-入口`runtime/code/run_continuous.py`需要Linux和完整仿真环境。`platform_session.py`的PX4目录与Python路径可通过`CBF_PX4_ROOT`、`CBF_PYTHON`设置；此处是发布副本的路径适配，控制公式未改变。原生插件、固件配置与上游基准仍需在目标Linux机上核对。本次Windows离线检查不等于Linux闭环复现通过。
+入口`runtime/code/run_continuous.py`对应后期100次；`first36/runtime/code/run_continuous.py`对应D82初版，两者都需要Linux和完整仿真环境。两套入口均增加`--check-only`、本机`--cpu`及显式初始化文件检查，启动失败也恢复本机配置。`platform_session.py`的PX4目录与Python路径可通过`CBF_PX4_ROOT`、`CBF_PYTHON`设置；此处是发布副本的路径适配，控制公式未改变。原生插件、固件配置与上游基准仍需在目标Linux机上核对。本次Windows离线检查不等于Linux闭环复现通过。
 
 100次运行的全部结果、81个原生GIF和19张停止截图均随仓库发布，逐项提供路径与原件SHA256。首页仅展示精选录像，全部媒体在飞控板块的100次录像总目录中打开；短时停止截图没有伪装成完整录像。
 
@@ -59,3 +67,5 @@ python reproducibility/render_results.py
 首页PX4大图来自D82第一版36次登记代表片，4障碍另属D65早期批次。D89的100次结果与源码仍保留在归档入口，但不作为这组大图的对应代码或成绩。原36次数据、16项原件SHA及批次标签单独提供。
 
 D82运行目录与冻结清单已实际找回，90项源码/配置中88项匹配冻结登记、2项为冻结清单自身，未发现登记项不一致。索引只证明该次原件核验，不代替环境依赖闭包、固件重编译或Linux闭环复现。首批的“执行检查通过”沿用其既定口径，原记录含24 ms收令间隔，不解释为硬实时保证。
+
+[本轮运行包补齐、原件保护与核验边界](运行包补齐核验.md) · [初版36次环境准备与完整单例命令](../px4-gazebo/first36/README.md)

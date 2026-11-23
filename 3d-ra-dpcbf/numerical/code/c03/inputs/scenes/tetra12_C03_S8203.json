@@ -1,0 +1,32 @@
+{
+  "scene_id": "tetra12_C03_S8203",
+  "seed": 8203,
+  "parameters": {
+    "close_start": 13.5,
+    "initial_L": 1.4,
+    "min_L": 0.94,
+    "max_L": 2.7,
+    "close_duration": 3.7,
+    "opening_duration": 5.8,
+    "late_close_duration": 5.8,
+    "rotation_rate": 0.22,
+    "rotation_phase": -0.5
+  },
+  "first8_match_original": true,
+  "acceleration_norm_max": 0.4173768378862889,
+  "jerk_norm_max": 0.5444604824285216,
+  "continuous_box_clearance_lower_m": 0.6965248535243725,
+  "pair_body_gap_lower_m": 0.13305330151408856,
+  "speed_norm_upper": 0.693786063417167,
+  "all_axis_velocity_acceleration_vary": true,
+  "opening_start": 17.7,
+  "opening_end": 23.5,
+  "late_close_start": 25.5,
+  "position_interpolation": "C2 integral of piecewise-linear acceleration knots",
+  "time_only_motion": true,
+  "online_robot_feedback": false,
+  "baseline_trajectory_used_for_offline_constant_anchor": true,
+  "physical_valid": true,
+  "analytic_position_knot_drift_max_m": 7.82180688520583e-05,
+  "file_sha256": "9fada3e78a47c010d1646d0f00e9040b80ba8a58e2fa7941f9581485a09481e4"
+}
